@@ -1,0 +1,78 @@
+{
+  "books": [
+    {
+      "id": "pachinko",
+      "cover": "/images/books/pachinko.jpg",
+      "title_uz": "Pachinko",
+      "title_orig": "Pachinko",
+      "author": "Min Jin Lee",
+      "publisher": "Grand Central Publishing",
+      "year": 2017,
+      "status": "negotiating",
+      "featured": true,
+      "rights_holder": "Peter Straus, RCW Literary Agency (London)",
+      "description_en": "An epic multigenerational saga of a Korean family in Japan — themes of identity, resilience, and sacrifice. Our inaugural title: inquiry sent to Peter Straus at RCW Literary Agency for Uzbek-language rights, target publication 2027.",
+      "description_uz": "Yaponiyadagi koreys oilasining epik sagasi — o'ziga xoslik, matonat va fidoyilik mavzulari. Bizning birinchi nashrimiz: o'zbek tilidagi huquqlar uchun RCW adabiy agentligidagi Peter Strausga so'rov yuborilgan, 2027 yil nashri ko'zda tutilmoqda."
+    },
+    {
+      "id": "midnight-library",
+      "cover": "/images/books/midnight-library.jpg",
+      "title_uz": "Yarim tundagi kutubxona",
+      "title_orig": "The Midnight Library",
+      "author": "Matt Haig",
+      "publisher": "Canongate Books",
+      "year": 2020,
+      "status": "pursuing",
+      "description_en": "A philosophical novel about infinite parallel lives and the weight of our choices. A natural fit for the young Uzbek readership.",
+      "description_uz": "Cheksiz parallel hayotlar va tanlovlarimiz haqidagi falsafiy roman. Yosh o'zbek kitobxoni uchun tabiiy tanlov."
+    },
+    {
+      "id": "sapiens",
+      "cover": "/images/books/sapiens.jpg",
+      "title_uz": "Sapiens: Insoniyatning qisqacha tarixi",
+      "title_orig": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "publisher": "Harper",
+      "year": 2014,
+      "status": "pursuing",
+      "description_en": "Harari's landmark survey of the human species. We have identified Uzbek as one of the few major markets without an authorised edition.",
+      "description_uz": "Harariyning insoniyat tarixiga bag'ishlangan muhim asari. O'zbekcha rasmiy nashri yo'qligini aniqlaganmiz."
+    },
+    {
+      "id": "mans-search",
+      "cover": "/images/books/mans-search.jpg",
+      "title_uz": "Inson ma'no izlab",
+      "title_orig": "Man's Search for Meaning",
+      "author": "Viktor E. Frankl",
+      "publisher": "Beacon Press",
+      "year": 1946,
+      "status": "pursuing",
+      "description_en": "Viktor Frankl's timeless testimony on finding meaning through suffering. A natural companion to the Uzbek cultural emphasis on perseverance.",
+      "description_uz": "Viktor Franklning azob-uqubatlar orqali ma'no topish haqidagi abadiy guvohligi. O'zbek madaniyatidagi sabr-matonatga tabiiy hamroh."
+    },
+    {
+      "id": "thinking-fast-slow",
+      "cover": "/images/books/thinking-fast-slow.jpg",
+      "title_uz": "Tez va sekin fikrlash",
+      "title_orig": "Thinking, Fast and Slow",
+      "author": "Daniel Kahneman",
+      "publisher": "Farrar, Straus and Giroux",
+      "year": 2011,
+      "status": "pursuing",
+      "description_en": "Kahneman's Nobel-rooted synthesis of human cognition and decision-making — foundational non-fiction.",
+      "description_uz": "Kahnemanning Nobel mukofoti bilan bog'liq inson tafakkuri va qaror qabul qilish bo'yicha sintezi — asosiy ilmiy-ommabop asar."
+    },
+    {
+      "id": "zero-to-one",
+      "cover": "/images/books/zero-to-one.jpg",
+      "title_uz": "Noldan bittagacha",
+      "title_orig": "Zero to One",
+      "author": "Peter Thiel",
+      "publisher": "Crown Business",
+      "year": 2014,
+      "status": "pursuing",
+      "description_en": "Peter Thiel's notes on startups and building the future — highly relevant to Uzbekistan's emerging entrepreneurial generation.",
+      "description_uz": "Peter Thielning startaplar va kelajakni qurish bo'yicha yozmalari — O'zbekistonning rivojlanayotgan tadbirkor avlodi uchun dolzarb."
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+---
+import "../styles/global.css";
+import translations from "../data/translations.json";
+
+export interface Props {
+  lang: "en" | "uz";
+}
+
+const { lang } = Astro.props;
+const title = translations.meta.title[lang];
+const description = translations.meta.description[lang];
+const siteUrl = "https://noshir.uz";
+const pathEn = "/";
+const pathUz = "/uz";
+const canonical = lang === "en" ? `${siteUrl}${pathEn}` : `${siteUrl}${pathUz}`;
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Noshir LLC",
+  alternateName: ["\"Noshir\" MChJ", "Noshir"],
+  url: siteUrl,
+  logo: `${siteUrl}/logo-icon.png`,
+  foundingDate: "1995-01-01",
+  description,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "30 Navoiy Street, Shaykhontohur District",
+    addressLocality: "Tashkent",
+    postalCode: "100000",
+    addressCountry: "UZ",
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "Translation Rights",
+      email: "rights@noshir.uz",
+      availableLanguage: ["en", "ru", "uz"],
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "General Inquiries",
+      email: "info@noshir.uz",
+      availableLanguage: ["en", "ru", "uz"],
+    },
+  ],
+  sameAs: [],
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}${pathEn}`} />
+    <link rel="alternate" hreflang="uz" href={`${siteUrl}${pathUz}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${pathEn}`} />
+
+    <meta name="theme-color" content="#1F3864" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
+    <meta property="og:locale" content={lang === "en" ? "en_US" : "uz_UZ"} />
+    <meta property="og:site_name" content="Noshir" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/og-image.jpg`} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-navy focus:text-paper focus:px-4 focus:py-2 focus:rounded focus:z-50">
+      Skip to main content
+    </a>
+    <slot />
+
+    <script is:inline>
+      // Scroll reveal — vanilla IntersectionObserver
+      (function () {
+        if (typeof window === "undefined") return;
+        const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const elements = document.querySelectorAll("[data-reveal]");
+        if (prefersReduce) {
+          elements.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+        );
+        elements.forEach((el) => io.observe(el));
+
+        // Nav: add .scrolled when scrolled
+        const nav = document.querySelector("[data-nav]");
+        if (nav) {
+          const onScroll = () => {
+            if (window.scrollY > 20) nav.classList.add("is-scrolled");
+            else nav.classList.remove("is-scrolled");
+          };
+          onScroll();
+          window.addEventListener("scroll", onScroll, { passive: true });
+        }
+
+        // Mobile menu toggle
+        const menuBtn = document.querySelector("[data-menu-btn]");
+        const menu = document.querySelector("[data-mobile-menu]");
+        if (menuBtn && menu) {
+          menuBtn.addEventListener("click", () => {
+            const open = menu.classList.toggle("is-open");
+            menuBtn.setAttribute("aria-expanded", String(open));
+            document.body.style.overflow = open ? "hidden" : "";
+          });
+          menu.querySelectorAll("a").forEach((a) => {
+            a.addEventListener("click", () => {
+              menu.classList.remove("is-open");
+              menuBtn.setAttribute("aria-expanded", "false");
+              document.body.style.overflow = "";
+            });
+          });
+        }
+
+        // Catalogue pagination
+        const grid = document.querySelector("[data-catalog-grid]");
+        const pagination = document.querySelector("[data-pagination]");
+        if (grid && pagination) {
+          const items = grid.querySelectorAll(".catalog-item");
+          const numButtons = pagination.querySelectorAll("[data-page-num]");
+          const prevBtn = pagination.querySelector("[data-page-action='prev']");
+          const nextBtn = pagination.querySelector("[data-page-action='next']");
+          const totalPages = numButtons.length;
+          let currentPage = 1;
+
+          const showPage = (page, { scroll = true } = {}) => {
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            items.forEach((item) => {
+              const p = parseInt(item.getAttribute("data-page"), 10);
+              if (p === page) item.classList.add("is-visible-page");
+              else item.classList.remove("is-visible-page");
+            });
+            numButtons.forEach((btn) => {
+              const n = parseInt(btn.getAttribute("data-page-num"), 10);
+              if (n === page) {
+                btn.classList.add("is-active");
+                btn.setAttribute("aria-current", "page");
+              } else {
+                btn.classList.remove("is-active");
+                btn.removeAttribute("aria-current");
+              }
+            });
+            if (prevBtn) prevBtn.disabled = page === 1;
+            if (nextBtn) nextBtn.disabled = page === totalPages;
+
+            if (scroll) {
+              const section = document.getElementById("catalog");
+              if (section) {
+                const top = section.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top, behavior: "smooth" });
+              }
+            }
+          };
+
+          numButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const n = parseInt(btn.getAttribute("data-page-num"), 10);
+              showPage(n);
+            });
+          });
+
+          if (prevBtn) prevBtn.addEventListener("click", () => showPage(currentPage - 1));
+          if (nextBtn) nextBtn.addEventListener("click", () => showPage(currentPage + 1));
+
+          // Initial render: show page 1 without scrolling
+          showPage(1, { scroll: false });
+        }
+      })();
+    </script>
+  </body>
+</html>

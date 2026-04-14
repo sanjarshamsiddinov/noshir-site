@@ -1,0 +1,24 @@
+---
+import translations from "../data/translations.json";
+export interface Props { lang: "en" | "uz" }
+const { lang } = Astro.props;
+const t = translations.trust_bar;
+const items = [t.est[lang], t.location[lang], t.readers[lang], t.partner[lang]];
+---
+
+<section class="bg-[color:var(--color-paper)] border-y border-[color:var(--color-navy)]/10">
+  <div class="container-site">
+    <div class="py-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-center">
+      {items.map((item, i) => (
+        <>
+          <span class="text-[0.72rem] font-semibold tracking-[0.18em] uppercase text-[color:var(--color-ink-muted)]">
+            {item}
+          </span>
+          {i < items.length - 1 && (
+            <span class="hidden md:inline text-[color:var(--color-gold)]" aria-hidden="true">·</span>
+          )}
+        </>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+---
+import translations from "../data/translations.json";
+export interface Props { lang: "en" | "uz" }
+const { lang } = Astro.props;
+const t = translations;
+---
+
+<footer class="bookshelf-bg pt-20 pb-10 text-[color:var(--color-paper)]">
+  <div class="container-site relative z-10">
+    <div class="grid md:grid-cols-12 gap-10 md:gap-8 pb-14 border-b border-[color:var(--color-paper)]/10">
+      <!-- Brand -->
+      <div class="md:col-span-5">
+        <a href="#top" class="inline-block mb-5">
+          <img src="/logo-nav.png" alt="Noshir Books" class="h-12 w-auto" />
+        </a>
+        <p class="text-[color:var(--color-paper)]/70 leading-relaxed max-w-md">
+          {t.footer.tagline[lang]}
+        </p>
+      </div>
+
+      <!-- Nav -->
+      <div class="md:col-span-3">
+        <h3 class="text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-[color:var(--color-gold)] mb-5">
+          {t.footer.nav_heading[lang]}
+        </h3>
+        <ul class="space-y-3">
+          <li><a href="#about" class="text-[color:var(--color-paper)]/75 hover:text-[color:var(--color-paper)] transition-colors">{t.nav.about[lang]}</a></li>
+          <li><a href="#catalog" class="text-[color:var(--color-paper)]/75 hover:text-[color:var(--color-paper)] transition-colors">{t.nav.catalog[lang]}</a></li>
+          <li><a href="#contact" class="text-[color:var(--color-paper)]/75 hover:text-[color:var(--color-paper)] transition-colors">{t.nav.contact[lang]}</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="md:col-span-4">
+        <h3 class="text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-[color:var(--color-gold)] mb-5">
+          {t.footer.contact_heading[lang]}
+        </h3>
+        <ul class="space-y-3 text-[color:var(--color-paper)]/75">
+          <li><a href="mailto:info@noshir.uz" class="hover:text-[color:var(--color-paper)] transition-colors">info@noshir.uz</a></li>
+          <li><a href="tel:+998909684747" class="hover:text-[color:var(--color-paper)] transition-colors">+998 90 968 47 47</a></li>
+          <li class="pt-2 text-[0.88rem] leading-relaxed">
+            {t.contact.address_value[lang]}
+          </li>
+          <li class="pt-2">
+            <a
+              href={lang === "en" ? "/uz" : "/"}
+              class="inline-block text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[color:var(--color-gold)] hover:text-[color:var(--color-gold-soft)]"
+            >
+              {lang === "en" ? "O'zbekcha →" : "English →"}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-[0.82rem] text-[color:var(--color-paper)]/60">
+      <p>{t.footer.copyright[lang]}</p>
+      <p>{t.footer.legal[lang]}</p>
+    </div>
+  </div>
+</footer>

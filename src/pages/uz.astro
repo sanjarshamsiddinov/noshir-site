@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import TrustBar from "../components/TrustBar.astro";
+import About from "../components/About.astro";
+import Catalog from "../components/Catalog.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+
+const lang = "uz" as const;
+---
+
+<Base lang={lang}>
+  <Nav lang={lang} />
+  <main id="main">
+    <Hero lang={lang} />
+    <TrustBar lang={lang} />
+    <About lang={lang} />
+    <Catalog lang={lang} />
+    <Contact lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</Base>

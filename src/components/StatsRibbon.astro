@@ -1,0 +1,37 @@
+---
+import translations from "../data/translations.json";
+export interface Props { lang: "en" | "uz" }
+const { lang } = Astro.props;
+const t = translations.stats;
+
+const stats = [
+  { value: t.s1_value[lang], label: t.s1_label[lang] },
+  { value: t.s2_value[lang], label: t.s2_label[lang] },
+  { value: t.s3_value[lang], label: t.s3_label[lang] },
+  { value: t.s4_value[lang], label: t.s4_label[lang] },
+];
+---
+
+<section class="bookshelf-bg py-20 md:py-24 text-[color:var(--color-paper)]">
+  <div class="container-site relative z-10">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-6">
+      {stats.map((s, i) => (
+        <div
+          class="text-center md:border-r md:last:border-r-0 border-[color:var(--color-paper)]/15 md:px-4"
+          data-reveal
+          style={`--reveal-delay: ${i * 80}ms;`}
+        >
+          <div
+            class="font-serif font-black leading-none mb-4 text-[color:var(--color-gold)] tracking-tight"
+            style="font-size: clamp(2rem, 4.2vw, 3.25rem);"
+          >
+            {s.value}
+          </div>
+          <div class="text-[0.68rem] md:text-[0.74rem] font-semibold tracking-[0.15em] uppercase text-[color:var(--color-paper)]/75 leading-[1.55] max-w-[220px] mx-auto">
+            {s.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

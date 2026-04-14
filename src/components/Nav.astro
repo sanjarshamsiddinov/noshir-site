@@ -1,0 +1,139 @@
+---
+import translations from "../data/translations.json";
+
+export interface Props {
+  lang: "en" | "uz";
+}
+const { lang } = Astro.props;
+const t = translations;
+const altLangHref = lang === "en" ? "/uz" : "/";
+---
+
+<header
+  data-nav
+  class="fixed top-0 inset-x-0 z-40 transition-all duration-300 bg-transparent"
+>
+  <div class="container-site">
+    <div class="flex items-center justify-between py-5">
+      <!-- Logo -->
+      <a href="#top" class="group">
+        <img src="/logo-nav.png" alt="Noshir Books" class="h-10 md:h-12 w-auto" />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-9">
+        <a href="#about" class="nav-link">{t.nav.about[lang]}</a>
+        <a href="#catalog" class="nav-link">{t.nav.catalog[lang]}</a>
+        <a href="#contact" class="nav-link">{t.nav.contact[lang]}</a>
+      </nav>
+
+      <!-- Right side -->
+      <div class="hidden md:flex items-center gap-4">
+        <a
+          href={altLangHref}
+          class="text-xs font-semibold tracking-[0.12em] uppercase text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-navy)] transition-colors border border-[color:var(--color-ink-muted)]/30 hover:border-[color:var(--color-navy)] rounded-full px-3 py-1.5"
+          aria-label={lang === "en" ? "Switch to Uzbek" : "Inglizchaga o'tish"}
+        >
+          {lang === "en" ? "UZ" : "EN"}
+        </a>
+        <a href="#contact" class="btn btn-primary !py-2.5 !px-5 !text-sm">
+          {t.nav.cta[lang]}
+        </a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button
+        data-menu-btn
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        class="md:hidden w-10 h-10 flex items-center justify-center text-[color:var(--color-navy)]"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="8" x2="20" y2="8" />
+          <line x1="4" y1="16" x2="20" y2="16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    data-mobile-menu
+    class="md:hidden fixed inset-0 bg-[color:var(--color-paper)] z-50 translate-x-full transition-transform duration-300 [&.is-open]:translate-x-0"
+  >
+    <div class="container-site py-5 flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="/logo-nav.png" alt="Noshir Books" class="h-10 w-auto" />
+      </div>
+      <button
+        data-menu-btn
+        aria-label="Close menu"
+        class="w-10 h-10 flex items-center justify-center text-[color:var(--color-navy)]"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="6" y1="6" x2="18" y2="18" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <nav class="container-site pt-8 flex flex-col gap-7">
+      <a href="#about" class="text-3xl font-serif text-[color:var(--color-navy)]">{t.nav.about[lang]}</a>
+      <a href="#catalog" class="text-3xl font-serif text-[color:var(--color-navy)]">{t.nav.catalog[lang]}</a>
+      <a href="#rights" class="text-3xl font-serif text-[color:var(--color-navy)]">{t.nav.rights[lang]}</a>
+      <a href="#contact" class="text-3xl font-serif text-[color:var(--color-navy)]">{t.nav.contact[lang]}</a>
+      <div class="pt-6 mt-2 border-t border-[color:var(--color-ink-muted)]/20 flex items-center justify-between">
+        <a
+          href={altLangHref}
+          class="text-sm font-semibold tracking-[0.12em] uppercase text-[color:var(--color-ink-muted)]"
+        >
+          {lang === "en" ? "O'ZBEKCHA →" : "ENGLISH →"}
+        </a>
+        <a href="#contact" class="btn btn-primary !py-2.5 !px-5 !text-sm">
+          {t.nav.cta[lang]}
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  [data-nav].is-scrolled {
+    background: rgba(248, 245, 239, 0.92);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    box-shadow: 0 1px 0 rgba(31, 56, 100, 0.08);
+  }
+
+  [data-nav].is-scrolled :global(.nav-link),
+  [data-nav].is-scrolled :global(.wordmark) {
+    color: var(--color-navy);
+  }
+
+  [data-nav]:not(.is-scrolled) :global(.nav-link) {
+    color: rgba(248, 245, 239, 0.85);
+  }
+
+  [data-nav]:not(.is-scrolled) :global(.nav-link:hover) {
+    color: var(--color-paper);
+  }
+
+  [data-nav]:not(.is-scrolled) :global(span[class*="text-[color:var(--color-ink-muted)]"]) {
+    color: rgba(248, 245, 239, 0.55) !important;
+  }
+
+  [data-nav]:not(.is-scrolled) :global(a[aria-label*="Switch"]),
+  [data-nav]:not(.is-scrolled) :global(a[aria-label*="o'tish"]) {
+    color: rgba(248, 245, 239, 0.85) !important;
+    border-color: rgba(248, 245, 239, 0.3) !important;
+  }
+
+  [data-nav]:not(.is-scrolled) :global(a[aria-label*="Switch"]:hover),
+  [data-nav]:not(.is-scrolled) :global(a[aria-label*="o'tish"]:hover) {
+    color: var(--color-paper) !important;
+    border-color: var(--color-gold) !important;
+  }
+
+  [data-nav]:not(.is-scrolled) :global([data-menu-btn]) {
+    color: var(--color-paper);
+  }
+</style>

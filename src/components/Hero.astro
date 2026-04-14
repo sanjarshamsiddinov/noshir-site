@@ -1,0 +1,42 @@
+---
+import translations from "../data/translations.json";
+export interface Props { lang: "en" | "uz" }
+const { lang } = Astro.props;
+const t = translations.hero;
+---
+
+<section id="top" class="bookshelf-bg relative min-h-[92svh] flex items-center pt-32 pb-24 text-[color:var(--color-paper)]">
+  <div class="container-site relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1
+        class="font-serif font-black tracking-tight leading-[1.04] mb-8 text-[color:var(--color-paper)]"
+        style="font-size: clamp(2.5rem, 6vw, 5.25rem);"
+        data-reveal
+        style:--reveal-delay="120ms"
+      >
+        {t.headline[lang]}
+      </h1>
+      <p
+        class="text-lg md:text-xl leading-[1.65] max-w-2xl mx-auto text-[color:var(--color-paper)]/80 mb-10"
+        data-reveal
+        style="--reveal-delay: 220ms;"
+      >
+        {t.subheadline[lang]}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-reveal style="--reveal-delay: 340ms;">
+        <a href="#catalog" class="btn btn-primary !bg-[color:var(--color-gold)] !border-[color:var(--color-gold)] !text-[color:var(--color-navy-deep)] hover:!bg-[color:var(--color-gold-soft)] hover:!border-[color:var(--color-gold-soft)]">
+          {t.cta_primary[lang]}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-[color:var(--color-paper)]/40 hidden md:block" aria-hidden="true">
+    <div class="w-[1px] h-16 bg-gradient-to-b from-transparent via-[color:var(--color-paper)]/50 to-[color:var(--color-paper)]/80 mx-auto"></div>
+  </div>
+</section>

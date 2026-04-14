@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "title": {
+      "en": "Noshir — Independent Publishing House in Tashkent, Uzbekistan",
+      "uz": "Noshir — Toshkentdagi mustaqil nashriyot uyi"
+    },
+    "description": {
+      "en": "An independent Tashkent publisher launching an international translation programme to bring world literature into Uzbek. Registered 1995. Inaugural title: Pachinko by Min Jin Lee.",
+      "uz": "Jahon adabiyotini o'zbek tiliga olib kelish uchun xalqaro tarjima dasturini ishga tushirayotgan mustaqil Toshkent nashriyoti. 1995 yilda tashkil etilgan. Birinchi nashr: Min Jin Leening \"Pachinko\" asari."
+    }
+  },
+  "nav": {
+    "about": { "en": "About", "uz": "Biz haqimizda" },
+    "catalog": { "en": "Books", "uz": "Kitoblar" },
+    "rights": { "en": "Rights", "uz": "Huquqlar" },
+    "contact": { "en": "Contact", "uz": "Aloqa" },
+    "cta": { "en": "Rights Inquiry", "uz": "Huquqlar so'rovi" },
+    "established": { "en": "Est. 1995", "uz": "1995 yildan" }
+  },
+  "hero": {
+    "eyebrow": {
+      "en": "Independent Publishing House · Tashkent, Uzbekistan",
+      "uz": "Mustaqil nashriyot uyi · Toshkent, O'zbekiston"
+    },
+    "headline": {
+      "en": "World Literature & Guides",
+      "uz": "Jahon adabiyoti va qo'llanmalar"
+    },
+    "subheadline": {
+      "en": "We publish the finest fiction alongside modern IT and popular-science books to the highest standards. If you hold the rights to a work and have a ready project, we can turn it into a real book and bring it to readers.",
+      "uz": "Biz eng sara badiiy asarlar, shuningdek, zamonaviy IT va ilmiy-ommabop kitoblarni sifatli nashr etamiz. Agar sizda asarni chop etish huquqi va tayyor loyiha bo'lsa, biz uni haqiqiy kitobga aylantirish va o'quvchilarga taqdim etishda yordam beramiz."
+    },
+    "cta_primary": { "en": "View the Books", "uz": "Kitoblarni ko'rish" },
+    "cta_secondary": { "en": "Translation Rights", "uz": "Tarjima huquqlari" }
+  },
+  "trust_bar": {
+    "est": { "en": "Established 1995", "uz": "1995 yilda tashkil etilgan" },
+    "location": { "en": "Tashkent, Uzbekistan", "uz": "Toshkent, O'zbekiston" },
+    "readers": { "en": "36M Uzbek-language readers", "uz": "36 million o'zbek kitobxoni" },
+    "partner": { "en": "International rights partnerships", "uz": "Xalqaro huquq hamkorliklari" }
+  },
+  "about": {
+    "eyebrow": { "en": "About Noshir", "uz": "Biz haqimizda" },
+    "heading": {
+      "en": "A Tashkent publishing house, turning to the world",
+      "uz": "Toshkentdagi nashriyot uyi — endi jahon sari"
+    },
+    "paragraph_1": {
+      "en": "Noshir LLC is an independent publishing house based in Tashkent. Since 1995, we have been dedicated to providing our readers with high-quality, beautifully printed books. Starting in 2026, we are embarking on an exciting new mission: helping bring the world's best contemporary fiction, non-fiction, and IT literature to Uzbek readers.",
+      "uz": "Noshir MChJ — Toshkentda joylashgan mustaqil nashriyot uyi. 1995 yildan buyon biz o'quvchilarimizga yuqori sifatli, chiroyli bosma kitoblar taqdim etishga bag'ishlanganmiz. 2026 yildan boshlab biz yangi va qiziqarli vazifaga kirishmoqdamiz: jahonning eng yaxshi zamonaviy badiiy, ilmiy-ommabop va IT adabiyotini o'zbek o'quvchilariga yetkazish."
+    },
+    "paragraph_2": {
+      "en": "",
+      "uz": ""
+    },
+    "stat_1_label": { "en": "Established", "uz": "Tashkil etilgan" },
+    "stat_1_value": { "en": "1995", "uz": "1995" },
+    "stat_2_label": { "en": "Based In", "uz": "Manzil" },
+    "stat_2_value": { "en": "Tashkent", "uz": "Toshkent" },
+    "stat_3_label": { "en": "Programme Launched", "uz": "Dastur ishga tushdi" },
+    "stat_3_value": { "en": "2026", "uz": "2026" }
+  },
+  "stats": {
+    "s1_value": { "en": "1995", "uz": "1995" },
+    "s1_label": { "en": "In the Uzbek publishing market since", "uz": "O'zbek kitob bozorida shu yildan beri" },
+    "s2_value": { "en": "36M", "uz": "36M" },
+    "s2_label": { "en": "Uzbek-language readers", "uz": "O'zbek kitobxonlari" },
+    "s3_value": { "en": "2027", "uz": "2027" },
+    "s3_label": { "en": "First translated edition targeted", "uz": "Birinchi tarjima nashri rejalashtirilgan" },
+    "s4_value": { "en": "1–2", "uz": "1–2" },
+    "s4_label": { "en": "Titles per year, deliberately chosen", "uz": "Yiliga atayin tanlangan asarlar" }
+  },
+  "catalog": {
+    "eyebrow": { "en": "Catalogue", "uz": "Katalog" },
+    "heading": {
+      "en": "Our Published Books",
+      "uz": "Nashr etilgan kitoblarimiz"
+    },
+    "subheading": {
+      "en": "Explore our collection of published books across literature, science, IT, and the humanities.",
+      "uz": "Adabiyot, fan, IT va gumanitar sohalar bo'yicha nashr etilgan kitoblarimiz bilan tanishing."
+    }
+  },
+  "rights": {
+    "eyebrow": { "en": "Translation Rights", "uz": "Tarjima huquqlari" },
+    "heading": {
+      "en": "Seeking Uzbek-language rights for outstanding works",
+      "uz": "Eng zo'r asarlar uchun o'zbek tilidagi huquqlarni izlaymiz"
+    },
+    "intro": {
+      "en": "Noshir is actively acquiring Uzbek-language translation rights for contemporary fiction, literary classics, and essential non-fiction in business, technology, and ideas. We offer:",
+      "uz": "Noshir zamonaviy badiiy adabiyot, klassik asarlar, biznes, texnologiya va g'oyalar sohasidagi muhim ilmiy-ommabop asarlar uchun o'zbek tilidagi tarjima huquqlarini faol ravishda olmoqda. Biz quyidagilarni taklif etamiz:"
+    },
+    "offer_1": {
+      "en": "Direct contracts with international publishers and literary agencies",
+      "uz": "Xalqaro noshirlar va adabiy agentliklar bilan to'g'ridan-to'g'ri shartnomalar"
+    },
+    "offer_2": {
+      "en": "Professional literary translation into Uzbek",
+      "uz": "O'zbek tiliga professional adabiy tarjima"
+    },
+    "offer_3": {
+      "en": "Hardcover and paperback editions for the Central Asian market",
+      "uz": "Markaziy Osiyo bozori uchun qattiq va yumshoq muqovali nashrlar"
+    },
+    "offer_4": {
+      "en": "Distribution through Uzbekistan's leading retail networks, including Asaxiy Books",
+      "uz": "Asaxiy Books kabi O'zbekistonning yetakchi savdo tarmoqlari orqali tarqatish"
+    },
+    "offer_5": {
+      "en": "Flat-fee or royalty-based licensing, depending on the work",
+      "uz": "Asarga qarab qat'iy to'lov yoki royalti asosidagi litsenziya"
+    },
+    "cta_heading": {
+      "en": "Ready to discuss rights?",
+      "uz": "Huquqlar haqida suhbatlashishga tayyormisiz?"
+    },
+    "cta_text": {
+      "en": "Write to our rights representative. We respond to every serious inquiry within two business days.",
+      "uz": "Huquqlar vakilimizga yozing. Biz har bir jiddiy so'rovga ikki ish kuni ichida javob beramiz."
+    },
+    "cta_button": { "en": "Send Rights Inquiry", "uz": "Huquqlar so'rovini yuborish" }
+  },
+  "contact": {
+    "eyebrow": { "en": "Contact", "uz": "Aloqa" },
+    "heading": {
+      "en": "Get in touch",
+      "uz": "Biz bilan bog'laning"
+    },
+    "subheading": {
+      "en": "For rights inquiries, partnerships, or general correspondence.",
+      "uz": "Huquq so'rovlari, hamkorlik yoki umumiy yozishmalar uchun."
+    },
+    "email_label": { "en": "Email", "uz": "Elektron pochta" },
+    "phone_label": { "en": "Phone", "uz": "Telefon" },
+    "address_label": { "en": "Address", "uz": "Manzil" },
+    "address_value": {
+      "en": "30 Navoiy Street, Shaykhontohur District, Tashkent 100000, Uzbekistan",
+      "uz": "Navoiy ko'chasi, 30-uy, Shayxontohur tumani, Toshkent 100000, O'zbekiston"
+    },
+    "hours_label": { "en": "Business Hours", "uz": "Ish vaqti" },
+    "hours_value": {
+      "en": "Monday — Friday, 9:00 — 18:00 (UZT, GMT+5)",
+      "uz": "Dushanba — Juma, 9:00 — 18:00 (Toshkent vaqti, GMT+5)"
+    }
+  },
+  "footer": {
+    "tagline": {
+      "en": "An independent publishing house in Tashkent, established 1995 — now launching an international translation programme for the Uzbek-language market.",
+      "uz": "Toshkentdagi mustaqil nashriyot uyi, 1995 yilda tashkil etilgan — hozirda o'zbek tilidagi bozor uchun xalqaro tarjima dasturini ishga tushirmoqda."
+    },
+    "nav_heading": { "en": "Explore", "uz": "Ko'rib chiqing" },
+    "contact_heading": { "en": "Get in Touch", "uz": "Bog'lanish" },
+    "legal": {
+      "en": "\"Noshir\" LLC · Registered in Tashkent, Republic of Uzbekistan",
+      "uz": "\"Noshir\" MChJ · Toshkent, O'zbekiston Respublikasida ro'yxatdan o'tgan"
+    },
+    "copyright": {
+      "en": "© 1995 — 2026 \"Noshir\" LLC. All rights reserved.",
+      "uz": "© 1995 — 2026 \"Noshir\" MChJ. Barcha huquqlar himoyalangan."
+    }
+  }
+}

@@ -1,0 +1,110 @@
+---
+import translations from "../data/translations.json";
+export interface Props { lang: "en" | "uz" }
+const { lang } = Astro.props;
+const t = translations.contact;
+---
+
+<section id="contact" class="py-24 md:py-32 bg-[color:var(--color-paper)]">
+  <div class="container-site">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p class="eyebrow" data-reveal>{t.eyebrow[lang]}</p>
+      <hr class="divider-gold mx-auto" />
+      <h2
+        class="font-serif font-bold leading-[1.15] mb-6"
+        style="font-size: clamp(1.85rem, 3.8vw, 3rem);"
+        data-reveal
+        style:--reveal-delay="100ms"
+      >
+        {t.heading[lang]}
+      </h2>
+      <p class="text-[1.02rem] text-[color:var(--color-ink-muted)]" data-reveal style="--reveal-delay: 150ms;">
+        {t.subheading[lang]}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
+      <!-- Contact info cards -->
+      <div class="space-y-5" data-reveal>
+        <div class="flex gap-5 items-start p-6 rounded-lg border border-[color:var(--color-navy)]/10 bg-white hover:border-[color:var(--color-gold)] transition-colors">
+          <div class="w-11 h-11 shrink-0 rounded-lg bg-[color:var(--color-navy)]/5 flex items-center justify-center text-[color:var(--color-navy)]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-[color:var(--color-ink-muted)] mb-1">
+              {t.email_label[lang]}
+            </p>
+            <a href="mailto:info@noshir.uz" class="block font-serif text-lg text-[color:var(--color-navy)] hover:text-[color:var(--color-accent)]">
+              info@noshir.uz
+            </a>
+            <a href="mailto:rights@noshir.uz" class="block font-serif text-lg text-[color:var(--color-navy)] hover:text-[color:var(--color-accent)]">
+              rights@noshir.uz
+            </a>
+          </div>
+        </div>
+
+        <div class="flex gap-5 items-start p-6 rounded-lg border border-[color:var(--color-navy)]/10 bg-white hover:border-[color:var(--color-gold)] transition-colors">
+          <div class="w-11 h-11 shrink-0 rounded-lg bg-[color:var(--color-navy)]/5 flex items-center justify-center text-[color:var(--color-navy)]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-[color:var(--color-ink-muted)] mb-1">
+              {t.phone_label[lang]}
+            </p>
+            <p class="font-serif text-lg text-[color:var(--color-navy)]">+998 90 968 47 47</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 items-start p-6 rounded-lg border border-[color:var(--color-navy)]/10 bg-white hover:border-[color:var(--color-gold)] transition-colors">
+          <div class="w-11 h-11 shrink-0 rounded-lg bg-[color:var(--color-navy)]/5 flex items-center justify-center text-[color:var(--color-navy)]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-[color:var(--color-ink-muted)] mb-1">
+              {t.address_label[lang]}
+            </p>
+            <p class="text-[color:var(--color-ink)] leading-relaxed">{t.address_value[lang]}</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 items-start p-6 rounded-lg border border-[color:var(--color-navy)]/10 bg-white hover:border-[color:var(--color-gold)] transition-colors">
+          <div class="w-11 h-11 shrink-0 rounded-lg bg-[color:var(--color-navy)]/5 flex items-center justify-center text-[color:var(--color-navy)]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-[color:var(--color-ink-muted)] mb-1">
+              {t.hours_label[lang]}
+            </p>
+            <p class="text-[color:var(--color-ink)]">{t.hours_value[lang]}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="md:sticky md:top-24" data-reveal style="--reveal-delay: 150ms;">
+        <div class="aspect-[4/5] md:aspect-square rounded-lg overflow-hidden border border-[color:var(--color-navy)]/10 shadow-[0_30px_60px_-20px_rgba(15,29,52,0.25)]">
+          <iframe
+            title="Noshir office location in Tashkent"
+            src="https://www.google.com/maps?q=Navoiy+Street+30+Tashkent&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

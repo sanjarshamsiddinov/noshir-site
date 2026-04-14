@@ -1,0 +1,141 @@
+---
+import translations from "../data/translations.json";
+import catalog from "../data/noshir-catalog.json";
+import BookCard from "./BookCard.astro";
+
+export interface Props { lang: "en" | "uz" }
+const { lang } = Astro.props;
+const t = translations.catalog;
+
+// Sort by year descending (newest first), then alphabetically
+const books = [...catalog].sort((a, b) => {
+  if ((b.year || 0) !== (a.year || 0)) return (b.year || 0) - (a.year || 0);
+  return a.title.localeCompare(b.title);
+});
+
+const totalCount = books.length;
+const PER_PAGE = 40;
+const pageCount = Math.ceil(totalCount / PER_PAGE);
+const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1);
+---
+
+<section id="catalog" class="py-24 md:py-32 bg-[color:var(--color-paper)]">
+  <div class="container-site">
+    <div class="max-w-3xl mx-auto mb-14 md:mb-16 text-center">
+      <p class="eyebrow" data-reveal>{t.eyebrow[lang]}</p>
+      <hr class="divider-gold mx-auto" />
+      <h2
+        class="font-serif font-bold leading-[1.15] mb-6"
+        style="font-size: clamp(1.85rem, 3.8vw, 3rem);"
+        data-reveal
+        style:--reveal-delay="100ms"
+      >
+        {t.heading[lang]}
+      </h2>
+      <p class="text-[1.02rem] leading-relaxed text-[color:var(--color-ink-muted)]" data-reveal style="--reveal-delay: 150ms;">
+        {t.subheading[lang].replace("{count}", String(totalCount))}
+      </p>
+    </div>
+
+    <!-- Grid — all 204 books, paginated via data-page -->
+    <div class="catalog-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10 md:gap-x-6 md:gap-y-12" data-catalog-grid>
+      {books.map((book, i) => {
+        const page = Math.floor(i / PER_PAGE) + 1;
+        return (
+          <div class="catalog-item" data-page={page}>
+            <BookCard book={book} />
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Pagination -->
+    <nav class="mt-16 md:mt-20 flex items-center justify-center gap-2 md:gap-3" aria-label="Catalogue pagination" data-pagination>
+      <button
+        type="button"
+        class="page-nav page-prev"
+        data-page-action="prev"
+        aria-label={lang === "en" ? "Previous page" : "Oldingi sahifa"}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      {pageNumbers.map((n) => (
+        <button
+          type="button"
+          class={`page-num ${n === 1 ? "is-active" : ""}`}
+          data-page-num={n}
+          aria-label={`${lang === "en" ? "Page" : "Sahifa"} ${n}`}
+          aria-current={n === 1 ? "page" : undefined}
+        >
+          {n}
+        </button>
+      ))}
+
+      <button
+        type="button"
+        class="page-nav page-next"
+        data-page-action="next"
+        aria-label={lang === "en" ? "Next page" : "Keyingi sahifa"}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</section>
+
+<style>
+  .catalog-item {
+    display: none;
+  }
+
+  .catalog-item.is-visible-page {
+    display: block;
+  }
+
+  .page-num,
+  .page-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink-muted);
+    background: transparent;
+    border: 1px solid rgba(31, 56, 100, 0.18);
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .page-num:hover,
+  .page-nav:hover:not(:disabled) {
+    border-color: var(--color-navy);
+    color: var(--color-navy);
+  }
+
+  .page-num.is-active {
+    background: var(--color-navy);
+    border-color: var(--color-navy);
+    color: var(--color-paper);
+  }
+
+  .page-nav:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .page-nav {
+    padding: 0;
+    width: 2.5rem;
+  }
+</style>

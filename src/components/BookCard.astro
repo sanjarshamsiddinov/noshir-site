@@ -1,0 +1,240 @@
+---
+export interface Props {
+  book: {
+    slug: string;
+    title: string;
+    author?: string | null;
+    year?: number | null;
+    pages?: number | null;
+    isbn?: string | null;
+    description?: string | null;
+    genre?: string | null;
+    translator?: string | null;
+    language?: string | null;
+  };
+}
+
+const { book } = Astro.props;
+const cover = `/images/noshir-books/${book.slug}.jpg`;
+---
+
+<article class="book-card" data-book-card>
+  <div class="book-cover">
+    <img
+      src={cover}
+      alt={`${book.title}${book.author ? " — " + book.author : ""}`}
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="cover-scrim" aria-hidden="true"></div>
+
+    <!-- Hover overlay -->
+    <div class="cover-overlay">
+      <div class="overlay-inner">
+        {book.description && (
+          <p class="overlay-desc">{book.description}</p>
+        )}
+        <div class="overlay-meta">
+          {book.genre && (
+            <p class="overlay-meta-line">
+              <span class="meta-label">Janr:</span> {book.genre}
+            </p>
+          )}
+          {book.translator && (
+            <p class="overlay-meta-line">
+              <span class="meta-label">Tarjimon:</span> {book.translator}
+            </p>
+          )}
+          {book.isbn && (
+            <p class="overlay-meta-line">
+              <span class="meta-label">ISBN:</span> {book.isbn}
+              {book.pages && <> · {book.pages} b.</>}
+            </p>
+          )}
+          {book.language && (
+            <p class="overlay-meta-line">
+              <span class="meta-label">Til:</span> {book.language}
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-meta">
+    <h3 class="book-title">{book.title}</h3>
+    {book.author && <p class="book-author">{book.author}</p>}
+    {book.year && <p class="book-year">{book.year}</p>}
+  </div>
+</article>
+
+<style>
+  .book-card {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .book-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .book-cover {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1f3864 0%, #0f1d34 100%);
+    box-shadow: 0 1px 2px rgba(15, 29, 52, 0.08),
+                0 16px 36px -18px rgba(15, 29, 52, 0.3);
+    transition: box-shadow 0.35s ease;
+  }
+
+  .book-card:hover .book-cover {
+    box-shadow: 0 2px 6px rgba(15, 29, 52, 0.12),
+                0 26px 50px -16px rgba(15, 29, 52, 0.4);
+  }
+
+  .book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.01);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .book-card:hover .book-cover img {
+    transform: scale(1.06);
+  }
+
+  .cover-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(15, 29, 52, 0) 0%,
+      rgba(15, 29, 52, 0) 55%,
+      rgba(15, 29, 52, 0.5) 100%
+    );
+    opacity: 0.5;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  .book-card:hover .cover-scrim {
+    opacity: 0;
+  }
+
+  .cover-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    padding: 0.85rem;
+    background: linear-gradient(
+      180deg,
+      rgba(15, 29, 52, 0) 0%,
+      rgba(15, 29, 52, 0.72) 30%,
+      rgba(15, 29, 52, 0.97) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .book-card:hover .cover-overlay {
+    opacity: 1;
+  }
+
+  .overlay-inner {
+    transform: translateY(10px);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    width: 100%;
+  }
+
+  .book-card:hover .overlay-inner {
+    transform: translateY(0);
+  }
+
+  .overlay-desc {
+    font-size: 0.7rem;
+    line-height: 1.5;
+    color: rgba(248, 245, 239, 0.92);
+    margin: 0 0 0.55rem 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .overlay-meta {
+    padding-top: 0.45rem;
+    border-top: 1px solid rgba(248, 245, 239, 0.15);
+  }
+
+  .overlay-meta-line {
+    font-size: 0.6rem;
+    line-height: 1.5;
+    color: rgba(248, 245, 239, 0.75);
+    margin: 0.1rem 0 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .meta-label {
+    font-weight: 600;
+    color: rgba(201, 164, 76, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.55rem;
+  }
+
+  .book-meta {
+    padding-top: 0.85rem;
+  }
+
+  .book-title {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-navy);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.4rem;
+  }
+
+  .book-author {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.78rem;
+    color: var(--color-ink-muted);
+    margin: 0.15rem 0 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .book-year {
+    font-size: 0.72rem;
+    color: var(--color-ink-muted);
+    margin: 0.12rem 0 0 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .book-card, .book-cover, .book-cover img,
+    .cover-overlay, .overlay-inner, .cover-scrim {
+      transition: none !important;
+    }
+    .book-card:hover { transform: none; }
+    .book-card:hover .book-cover img { transform: none; }
+  }
+</style>

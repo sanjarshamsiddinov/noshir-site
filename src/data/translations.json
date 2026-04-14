@@ -35,9 +35,7 @@
   },
   "trust_bar": {
     "est": { "en": "Established 1995", "uz": "1995 yilda tashkil etilgan" },
-    "location": { "en": "Tashkent, Uzbekistan", "uz": "Toshkent, O'zbekiston" },
-    "readers": { "en": "36M Uzbek-language readers", "uz": "36 million o'zbek kitobxoni" },
-    "partner": { "en": "International rights partnerships", "uz": "Xalqaro huquq hamkorliklari" }
+    "location": { "en": "Tashkent, Uzbekistan", "uz": "Toshkent, O'zbekiston" }
   },
   "about": {
     "eyebrow": { "en": "About Noshir", "uz": "Biz haqimizda" },
@@ -146,8 +144,8 @@
   },
   "footer": {
     "tagline": {
-      "en": "An independent publishing house in Tashkent, established 1995 — now launching an international translation programme for the Uzbek-language market.",
-      "uz": "Toshkentdagi mustaqil nashriyot uyi, 1995 yilda tashkil etilgan — hozirda o'zbek tilidagi bozor uchun xalqaro tarjima dasturini ishga tushirmoqda."
+      "en": "An independent publishing house in Tashkent, established 1995.",
+      "uz": "Toshkentdagi mustaqil nashriyot uyi, 1995 yilda tashkil etilgan."
     },
     "nav_heading": { "en": "Explore", "uz": "Ko'rib chiqing" },
     "contact_heading": { "en": "Get in Touch", "uz": "Bog'lanish" },

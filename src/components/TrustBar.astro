@@ -3,7 +3,7 @@ import translations from "../data/translations.json";
 export interface Props { lang: "en" | "uz" }
 const { lang } = Astro.props;
 const t = translations.trust_bar;
-const items = [t.est[lang], t.location[lang], t.readers[lang], t.partner[lang]];
+const items = [t.est[lang], t.location[lang]];
 ---
 
 <section class="bg-[color:var(--color-paper)] border-y border-[color:var(--color-navy)]/10">

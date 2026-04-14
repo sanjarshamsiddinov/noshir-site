@@ -10,9 +10,9 @@ const { lang } = Astro.props;
 const title = translations.meta.title[lang];
 const description = translations.meta.description[lang];
 const siteUrl = "https://noshir.uz";
-const pathEn = "/";
-const pathUz = "/uz";
-const canonical = lang === "en" ? `${siteUrl}${pathEn}` : `${siteUrl}${pathUz}`;
+const pathUz = "/";
+const pathEn = "/en";
+const canonical = lang === "uz" ? `${siteUrl}${pathUz}` : `${siteUrl}${pathEn}`;
 
 const orgJsonLd = {
   "@context": "https://schema.org",
@@ -34,13 +34,13 @@ const orgJsonLd = {
     {
       "@type": "ContactPoint",
       contactType: "Translation Rights",
-      email: "rights@noshir.uz",
+      email: "noshir@list.ru",
       availableLanguage: ["en", "ru", "uz"],
     },
     {
       "@type": "ContactPoint",
       contactType: "General Inquiries",
-      email: "info@noshir.uz",
+      email: "noshir@list.ru",
       availableLanguage: ["en", "ru", "uz"],
     },
   ],
@@ -60,7 +60,7 @@ const orgJsonLd = {
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href={`${siteUrl}${pathEn}`} />
     <link rel="alternate" hreflang="uz" href={`${siteUrl}${pathUz}`} />
-    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${pathEn}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${pathUz}`} />
 
     <meta name="theme-color" content="#1F3864" />
     <link rel="icon" href="/favicon.ico" sizes="48x48" />

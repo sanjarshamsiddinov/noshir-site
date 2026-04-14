@@ -6,7 +6,7 @@ export interface Props {
 }
 const { lang } = Astro.props;
 const t = translations;
-const altLangHref = lang === "en" ? "/uz" : "/";
+const altLangHref = lang === "uz" ? "/en" : "/";
 ---
 
 <header
@@ -32,9 +32,9 @@ const altLangHref = lang === "en" ? "/uz" : "/";
         <a
           href={altLangHref}
           class="text-xs font-semibold tracking-[0.12em] uppercase text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-navy)] transition-colors border border-[color:var(--color-ink-muted)]/30 hover:border-[color:var(--color-navy)] rounded-full px-3 py-1.5"
-          aria-label={lang === "en" ? "Switch to Uzbek" : "Inglizchaga o'tish"}
+          aria-label={lang === "uz" ? "Switch to English" : "O'zbekchaga o'tish"}
         >
-          {lang === "en" ? "UZ" : "EN"}
+          {lang === "uz" ? "EN" : "UZ"}
         </a>
         <a href="#contact" class="btn btn-primary !py-2.5 !px-5 !text-sm">
           {t.nav.cta[lang]}
@@ -86,7 +86,7 @@ const altLangHref = lang === "en" ? "/uz" : "/";
           href={altLangHref}
           class="text-sm font-semibold tracking-[0.12em] uppercase text-[color:var(--color-ink-muted)]"
         >
-          {lang === "en" ? "O'ZBEKCHA →" : "ENGLISH →"}
+          {lang === "uz" ? "ENGLISH →" : "O'ZBEKCHA →"}
         </a>
         <a href="#contact" class="btn btn-primary !py-2.5 !px-5 !text-sm">
           {t.nav.cta[lang]}

@@ -36,17 +36,17 @@ const t = translations;
           {t.footer.contact_heading[lang]}
         </h3>
         <ul class="space-y-3 text-[color:var(--color-paper)]/75">
-          <li><a href="mailto:info@noshir.uz" class="hover:text-[color:var(--color-paper)] transition-colors">info@noshir.uz</a></li>
+          <li><a href="mailto:noshir@list.ru" class="hover:text-[color:var(--color-paper)] transition-colors">noshir@list.ru</a></li>
           <li><a href="tel:+998909684747" class="hover:text-[color:var(--color-paper)] transition-colors">+998 90 968 47 47</a></li>
           <li class="pt-2 text-[0.88rem] leading-relaxed">
             {t.contact.address_value[lang]}
           </li>
           <li class="pt-2">
             <a
-              href={lang === "en" ? "/uz" : "/"}
+              href={lang === "uz" ? "/en" : "/"}
               class="inline-block text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[color:var(--color-gold)] hover:text-[color:var(--color-gold-soft)]"
             >
-              {lang === "en" ? "O'zbekcha →" : "English →"}
+              {lang === "uz" ? "English →" : "O'zbekcha →"}
             </a>
           </li>
         </ul>

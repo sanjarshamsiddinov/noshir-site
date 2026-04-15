@@ -9,7 +9,7 @@ export interface Props {
 const { lang } = Astro.props;
 const title = translations.meta.title[lang];
 const description = translations.meta.description[lang];
-const siteUrl = "https://noshir.uz";
+const siteUrl = "https://noshirbooks.uz";
 const pathUz = "/";
 const pathEn = "/en";
 const canonical = lang === "uz" ? `${siteUrl}${pathUz}` : `${siteUrl}${pathEn}`;

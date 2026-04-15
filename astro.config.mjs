@@ -4,7 +4,7 @@ import icon from "astro-icon";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://noshir.uz",
+  site: "https://noshirbooks.uz",
   trailingSlash: "ignore",
   integrations: [sitemap(), icon({ include: { lucide: ["*"] } })],
   vite: {

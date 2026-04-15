@@ -98,15 +98,35 @@ const altLangHref = lang === "uz" ? "/en" : "/";
 
 <style>
   [data-nav].is-scrolled {
-    background: rgba(248, 245, 239, 0.92);
+    background: rgba(15, 29, 52, 0.95);
     backdrop-filter: saturate(180%) blur(14px);
     -webkit-backdrop-filter: saturate(180%) blur(14px);
-    box-shadow: 0 1px 0 rgba(31, 56, 100, 0.08);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
   }
 
   [data-nav].is-scrolled :global(.nav-link),
   [data-nav].is-scrolled :global(.wordmark) {
-    color: var(--color-navy);
+    color: rgba(248, 245, 239, 0.85);
+  }
+
+  [data-nav].is-scrolled :global(.nav-link:hover) {
+    color: var(--color-paper);
+  }
+
+  [data-nav].is-scrolled :global(a[aria-label*="Switch"]),
+  [data-nav].is-scrolled :global(a[aria-label*="o'tish"]) {
+    color: rgba(248, 245, 239, 0.85) !important;
+    border-color: rgba(248, 245, 239, 0.3) !important;
+  }
+
+  [data-nav].is-scrolled :global(a[aria-label*="Switch"]:hover),
+  [data-nav].is-scrolled :global(a[aria-label*="o'tish"]:hover) {
+    color: var(--color-paper) !important;
+    border-color: var(--color-gold) !important;
+  }
+
+  [data-nav].is-scrolled :global([data-menu-btn]) {
+    color: var(--color-paper);
   }
 
   [data-nav]:not(.is-scrolled) :global(.nav-link) {

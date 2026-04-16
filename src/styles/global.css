@@ -140,34 +140,11 @@
     }
   }
 
-  /* Bookshelf pattern for hero/dark sections */
+  /* Dark section background */
   .bookshelf-bg {
     background-color: var(--color-dark);
-    background-image:
-      radial-gradient(ellipse at top, rgba(255, 255, 255, 0.04), transparent 60%),
-      radial-gradient(ellipse at bottom right, rgba(201, 164, 76, 0.08), transparent 50%);
     position: relative;
     overflow: hidden;
-  }
-
-  .bookshelf-bg::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0,
-        transparent 38px,
-        rgba(248, 245, 239, 0.035) 38px,
-        rgba(248, 245, 239, 0.035) 40px,
-        transparent 40px,
-        transparent 76px,
-        rgba(201, 164, 76, 0.03) 76px,
-        rgba(201, 164, 76, 0.03) 82px
-      );
-    opacity: 0.7;
-    pointer-events: none;
   }
 
   .status-badge {

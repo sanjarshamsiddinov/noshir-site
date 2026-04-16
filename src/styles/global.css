@@ -147,6 +147,48 @@
     overflow: hidden;
   }
 
+  /* Hero background with photo */
+  .hero-bg {
+    background-color: var(--color-dark-deep);
+    background-image: url("/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .hero-bg {
+      background-image: url("/hero-bg-sm.jpg");
+    }
+  }
+
+  /* Dark overlay for text readability */
+  .hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(15, 15, 18, 0.82) 0%,
+        rgba(15, 15, 18, 0.68) 40%,
+        rgba(15, 15, 18, 0.78) 100%
+      );
+    pointer-events: none;
+  }
+
+  /* Subtle gold glow accent */
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 50%, rgba(201, 164, 76, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+
   .status-badge {
     display: inline-flex;
     align-items: center;

@@ -55,50 +55,50 @@ const altLangHref = lang === "uz" ? "/en" : "/";
       </button>
     </div>
   </div>
-
-  <!-- Mobile menu -->
-  <div
-    data-mobile-menu
-    class="md:hidden fixed inset-0 bg-[color:var(--color-paper)] z-50 translate-x-full transition-transform duration-300 [&.is-open]:translate-x-0"
-  >
-    <div class="container-site py-5 flex items-center justify-between">
-      <div class="flex items-center">
-        <img src="/logo-nav.png" alt="Noshir Books" class="h-10 w-auto" />
-      </div>
-      <button
-        data-menu-btn
-        aria-label="Close menu"
-        class="w-10 h-10 flex items-center justify-center text-[color:var(--color-navy)]"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="6" y1="6" x2="18" y2="18" />
-          <line x1="18" y1="6" x2="6" y2="18" />
-        </svg>
-      </button>
-    </div>
-    <nav class="container-site pt-8 flex flex-col gap-7">
-      <a href="#about" class="text-3xl font-serif text-[color:var(--color-navy)]">{t.nav.about[lang]}</a>
-      <a href="#catalog" class="text-3xl font-serif text-[color:var(--color-navy)]">{t.nav.catalog[lang]}</a>
-      <a href="#rights" class="text-3xl font-serif text-[color:var(--color-navy)]">{t.nav.rights[lang]}</a>
-      <a href="#contact" class="text-3xl font-serif text-[color:var(--color-navy)]">{t.nav.contact[lang]}</a>
-      <div class="pt-6 mt-2 border-t border-[color:var(--color-ink-muted)]/20 flex items-center justify-between">
-        <a
-          href={altLangHref}
-          class="text-sm font-semibold tracking-[0.12em] uppercase text-[color:var(--color-ink-muted)]"
-        >
-          {lang === "uz" ? "ENGLISH →" : "O'ZBEKCHA →"}
-        </a>
-        <a href="#contact" class="btn btn-primary !py-2.5 !px-5 !text-sm">
-          {t.nav.cta[lang]}
-        </a>
-      </div>
-    </nav>
-  </div>
 </header>
+
+<!-- Mobile menu (outside header to avoid backdrop-filter containing block) -->
+<div
+  data-mobile-menu
+  class="md:hidden fixed inset-0 z-[60] translate-x-full transition-transform duration-300 [&.is-open]:translate-x-0"
+  style="background-color: #232328;"
+>
+  <div class="container-site py-5 flex items-center justify-between">
+    <div class="flex items-center">
+      <img src="/logo-nav.png" alt="Noshir Books" class="h-10 w-auto" />
+    </div>
+    <button
+      data-menu-btn
+      aria-label="Close menu"
+      class="w-10 h-10 flex items-center justify-center text-[color:var(--color-paper)]"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="6" y1="6" x2="18" y2="18" />
+        <line x1="18" y1="6" x2="6" y2="18" />
+      </svg>
+    </button>
+  </div>
+  <nav class="container-site pt-8 flex flex-col gap-7">
+    <a href="#about" class="text-3xl font-serif text-[color:var(--color-paper)]">{t.nav.about[lang]}</a>
+    <a href="#catalog" class="text-3xl font-serif text-[color:var(--color-paper)]">{t.nav.catalog[lang]}</a>
+    <a href="#contact" class="text-3xl font-serif text-[color:var(--color-paper)]">{t.nav.contact[lang]}</a>
+    <div class="pt-6 mt-2 border-t border-[color:var(--color-paper)]/20 flex items-center justify-between">
+      <a
+        href={altLangHref}
+        class="text-sm font-semibold tracking-[0.12em] uppercase text-[color:var(--color-paper)]/70"
+      >
+        {lang === "uz" ? "ENGLISH →" : "O'ZBEKCHA →"}
+      </a>
+      <a href="#contact" class="btn !bg-[color:var(--color-gold)] !border-[color:var(--color-gold)] !text-[#232328] !py-2.5 !px-5 !text-sm">
+        {t.nav.cta[lang]}
+      </a>
+    </div>
+  </nav>
+</div>
 
 <style>
   [data-nav].is-scrolled {
-    background: rgba(15, 29, 52, 0.95);
+    background: rgba(35, 35, 40, 0.95);
     backdrop-filter: saturate(180%) blur(14px);
     -webkit-backdrop-filter: saturate(180%) blur(14px);
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);

@@ -3,6 +3,8 @@
 @theme {
   --color-navy: #1f3864;
   --color-navy-deep: #0f1d34;
+  --color-dark: #232328;
+  --color-dark-deep: #1a1a1e;
   --color-accent: #2e75b6;
   --color-gold: #c9a44c;
   --color-gold-soft: #e6c98a;
@@ -140,9 +142,9 @@
 
   /* Bookshelf pattern for hero/dark sections */
   .bookshelf-bg {
-    background-color: var(--color-navy-deep);
+    background-color: var(--color-dark);
     background-image:
-      radial-gradient(ellipse at top, rgba(46, 117, 182, 0.15), transparent 60%),
+      radial-gradient(ellipse at top, rgba(255, 255, 255, 0.04), transparent 60%),
       radial-gradient(ellipse at bottom right, rgba(201, 164, 76, 0.08), transparent 50%);
     position: relative;
     overflow: hidden;

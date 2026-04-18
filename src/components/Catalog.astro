@@ -3,9 +3,10 @@ import translations from "../data/translations.json";
 import catalog from "../data/noshir-catalog.json";
 import BookCard from "./BookCard.astro";
 
-export interface Props { lang: "en" | "uz" }
+export interface Props { lang: "en" | "uz" | "ru" }
 const { lang } = Astro.props;
 const t = translations.catalog;
+const labels = translations.catalog.labels;
 
 // Sort by year descending (newest first), then alphabetically
 const books = [...catalog].sort((a, b) => {
@@ -17,6 +18,13 @@ const totalCount = books.length;
 const PER_PAGE = 40;
 const pageCount = Math.ceil(totalCount / PER_PAGE);
 const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1);
+
+// Show backlist + translation-programme note on all locales — content is
+// informative for any audience (local UZ readers, domestic CIS, foreign rights).
+const showBacklistNote = true;
+
+// Modal label strings — sourced here so JS can read them without extra I/O
+const closeLabel = lang === "en" ? "Close" : lang === "ru" ? "Закрыть" : "Yopish";
 ---
 
 <section id="catalog" class="py-24 md:py-32 bg-[color:var(--color-paper)]">
@@ -37,13 +45,21 @@ const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1);
       </p>
     </div>
 
-    <!-- Grid — all 204 books, paginated via data-page -->
+    {showBacklistNote && (
+      <div class="max-w-2xl mx-auto mb-10 md:mb-14 text-center" data-reveal>
+        <p class="text-[0.92rem] text-[color:var(--color-ink-muted)] italic leading-relaxed">
+          {t.backlist_note[lang]}
+        </p>
+      </div>
+    )}
+
+    <!-- Grid — paginated via data-page -->
     <div class="catalog-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10 md:gap-x-6 md:gap-y-12" data-catalog-grid>
       {books.map((book, i) => {
         const page = Math.floor(i / PER_PAGE) + 1;
         return (
           <div class="catalog-item" data-page={page}>
-            <BookCard book={book} />
+            <BookCard book={book} lang={lang} />
           </div>
         );
       })}
@@ -55,7 +71,7 @@ const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1);
         type="button"
         class="page-nav page-prev"
         data-page-action="prev"
-        aria-label={lang === "en" ? "Previous page" : "Oldingi sahifa"}
+        aria-label={lang === "en" ? "Previous page" : lang === "ru" ? "Предыдущая страница" : "Oldingi sahifa"}
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="15 18 9 12 15 6"></polyline>
@@ -67,7 +83,7 @@ const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1);
           type="button"
           class={`page-num ${n === 1 ? "is-active" : ""}`}
           data-page-num={n}
-          aria-label={`${lang === "en" ? "Page" : "Sahifa"} ${n}`}
+          aria-label={`${lang === "en" ? "Page" : lang === "ru" ? "Страница" : "Sahifa"} ${n}`}
           aria-current={n === 1 ? "page" : undefined}
         >
           {n}
@@ -78,7 +94,7 @@ const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1);
         type="button"
         class="page-nav page-next"
         data-page-action="next"
-        aria-label={lang === "en" ? "Next page" : "Keyingi sahifa"}
+        aria-label={lang === "en" ? "Next page" : lang === "ru" ? "Следующая страница" : "Keyingi sahifa"}
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="9 18 15 12 9 6"></polyline>
@@ -87,6 +103,152 @@ const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1);
     </nav>
   </div>
 </section>
+
+<!-- Book detail modal — single shared instance, populated by JS on click -->
+<div
+  class="book-modal"
+  data-book-modal
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="book-modal-title"
+  aria-hidden="true"
+>
+  <div class="book-modal-backdrop" data-modal-close aria-hidden="true"></div>
+  <div class="book-modal-inner" role="document">
+    <button
+      type="button"
+      class="book-modal-close"
+      data-modal-close
+      aria-label={closeLabel}
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="6" y1="6" x2="18" y2="18" />
+        <line x1="18" y1="6" x2="6" y2="18" />
+      </svg>
+    </button>
+    <div class="book-modal-grid">
+      <div class="book-modal-cover-wrap">
+        <img data-modal-cover src="" alt="" loading="lazy" />
+      </div>
+      <div class="book-modal-body">
+        <h3 id="book-modal-title" data-modal-title class="book-modal-title"></h3>
+        <p data-modal-author class="book-modal-author"></p>
+        <p data-modal-year class="book-modal-year"></p>
+        <p data-modal-description class="book-modal-description"></p>
+        <dl data-modal-meta class="book-modal-meta"></dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ labels, lang }}>
+  (function () {
+    if (typeof window === "undefined") return;
+    const grid = document.querySelector("[data-catalog-grid]");
+    const modal = document.querySelector("[data-book-modal]");
+    if (!grid || !modal) return;
+
+    const titleEl = modal.querySelector("[data-modal-title]");
+    const authorEl = modal.querySelector("[data-modal-author]");
+    const yearEl = modal.querySelector("[data-modal-year]");
+    const descEl = modal.querySelector("[data-modal-description]");
+    const metaEl = modal.querySelector("[data-modal-meta]");
+    const coverEl = modal.querySelector("[data-modal-cover]");
+    const closeEls = modal.querySelectorAll("[data-modal-close]");
+
+    let previouslyFocused = null;
+
+    const openModal = (book) => {
+      titleEl.textContent = book.title || "";
+      authorEl.textContent = book.author || "";
+      authorEl.hidden = !book.author;
+
+      // Year + pages line
+      const yearParts = [];
+      if (book.year) yearParts.push(String(book.year));
+      if (book.pages) yearParts.push(`${book.pages} ${labels.pages[lang]}`);
+      yearEl.textContent = yearParts.join(" · ");
+      yearEl.hidden = yearParts.length === 0;
+
+      descEl.textContent = book.description || "";
+      descEl.hidden = !book.description;
+
+      // Metadata definition list
+      metaEl.innerHTML = "";
+      const rows = [
+        ["genre", book.genre],
+        ["translator", book.translator],
+        ["language", book.language],
+        ["isbn", book.isbn],
+      ];
+      rows.forEach(([key, value]) => {
+        if (!value) return;
+        const dt = document.createElement("dt");
+        dt.textContent = labels[key][lang];
+        const dd = document.createElement("dd");
+        dd.textContent = value;
+        metaEl.appendChild(dt);
+        metaEl.appendChild(dd);
+      });
+
+      coverEl.src = book.cover || "";
+      coverEl.alt = `${book.title || ""}${book.author ? " — " + book.author : ""}`;
+
+      previouslyFocused = document.activeElement;
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      // Focus the close button for keyboard/screen-reader users
+      setTimeout(() => {
+        const firstCloseBtn = modal.querySelector(".book-modal-close");
+        if (firstCloseBtn) firstCloseBtn.focus();
+      }, 50);
+    };
+
+    const closeModal = () => {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (previouslyFocused && typeof previouslyFocused.focus === "function") {
+        previouslyFocused.focus();
+      }
+    };
+
+    // Delegate clicks on cards inside the grid
+    const handleActivate = (card) => {
+      const raw = card.getAttribute("data-book");
+      if (!raw) return;
+      try {
+        const book = JSON.parse(raw);
+        openModal(book);
+      } catch (err) {
+        console.error("Book data parse error", err);
+      }
+    };
+
+    grid.addEventListener("click", (e) => {
+      const card = e.target.closest("[data-book-card]");
+      if (!card) return;
+      handleActivate(card);
+    });
+
+    grid.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const card = e.target.closest("[data-book-card]");
+      if (!card) return;
+      e.preventDefault();
+      handleActivate(card);
+    });
+
+    closeEls.forEach((el) => el.addEventListener("click", closeModal));
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("is-open")) {
+        closeModal();
+      }
+    });
+  })();
+</script>
 
 <style>
   .catalog-item {
@@ -137,5 +299,191 @@ const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1);
   .page-nav {
     padding: 0;
     width: 2.5rem;
+  }
+
+  /* ---------------- Book detail modal ---------------- */
+
+  .book-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .book-modal.is-open {
+    display: flex;
+    animation: bmFade 0.25s ease;
+  }
+
+  @keyframes bmFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .book-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 29, 52, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .book-modal-inner {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--color-paper);
+    border-radius: 0.75rem;
+    box-shadow: 0 40px 80px -20px rgba(15, 29, 52, 0.55);
+    animation: bmSlide 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes bmSlide {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+
+  .book-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(31, 56, 100, 0.08);
+    color: var(--color-navy);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    z-index: 2;
+  }
+
+  .book-modal-close:hover {
+    background: rgba(31, 56, 100, 0.18);
+    transform: rotate(90deg);
+  }
+
+  .book-modal-close:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  .book-modal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  @media (min-width: 720px) {
+    .book-modal-grid {
+      grid-template-columns: minmax(240px, 300px) 1fr;
+      gap: 0;
+    }
+  }
+
+  .book-modal-cover-wrap {
+    background: linear-gradient(135deg, #1f3864 0%, #0f1d34 100%);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .book-modal-cover-wrap img {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .book-modal-body {
+    padding: 2rem;
+  }
+
+  @media (min-width: 720px) {
+    .book-modal-body {
+      padding: 2.5rem 2.5rem 2.5rem 2rem;
+    }
+  }
+
+  .book-modal-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--color-navy);
+    margin: 0 2.5rem 0.3rem 0;
+  }
+
+  .book-modal-author {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+
+  .book-modal-year {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-accent);
+    margin: 1rem 0 1.25rem 0;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+
+  .book-modal-description {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-ink);
+    margin: 0 0 1.5rem 0;
+    white-space: pre-wrap;
+  }
+
+  .book-modal-meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.4rem 1rem;
+    margin: 1.5rem 0 0 0;
+    padding: 1.25rem 0 0 0;
+    border-top: 1px solid rgba(31, 56, 100, 0.1);
+    font-size: 0.85rem;
+  }
+
+  .book-modal-meta dt {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin: 0;
+    padding-top: 0.2rem;
+  }
+
+  .book-modal-meta dd {
+    color: var(--color-ink);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .book-modal.is-open,
+    .book-modal-inner,
+    .book-modal-close {
+      animation: none !important;
+      transition: none !important;
+    }
   }
 </style>

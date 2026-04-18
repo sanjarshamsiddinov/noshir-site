@@ -1,15 +1,21 @@
 ---
 import translations from "../data/translations.json";
-export interface Props { lang: "en" | "uz" }
+export interface Props { lang: "en" | "uz" | "ru" }
 const { lang } = Astro.props;
 const t = translations;
+
+const rightsHeading = lang === "en"
+  ? "Rights & Permissions"
+  : lang === "ru"
+    ? "Права и разрешения"
+    : "Huquqlar va ruxsatlar";
 ---
 
 <footer class="bookshelf-bg pt-20 pb-10 text-[color:var(--color-paper)]">
   <div class="container-site relative z-10">
     <div class="grid md:grid-cols-12 gap-10 md:gap-8 pb-14 border-b border-[color:var(--color-paper)]/10">
       <!-- Brand -->
-      <div class="md:col-span-5">
+      <div class="md:col-span-4">
         <a href="#top" class="inline-block mb-5">
           <img src="/logo-nav.png" alt="Noshir Books" class="h-12 w-auto" />
         </a>
@@ -19,7 +25,7 @@ const t = translations;
       </div>
 
       <!-- Nav -->
-      <div class="md:col-span-3">
+      <div class="md:col-span-2">
         <h3 class="text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-[color:var(--color-gold)] mb-5">
           {t.footer.nav_heading[lang]}
         </h3>
@@ -30,32 +36,76 @@ const t = translations;
         </ul>
       </div>
 
-      <!-- Contact -->
-      <div class="md:col-span-4">
+      <!-- Rights & Permissions -->
+      <div class="md:col-span-3">
+        <h3 class="text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-[color:var(--color-gold)] mb-5">
+          {rightsHeading}
+        </h3>
+        <ul class="space-y-2 text-[color:var(--color-paper)]/75">
+          <li class="text-[color:var(--color-paper)] font-medium">
+            {t.about.team_rights_name[lang]}
+          </li>
+          <li class="text-[0.88rem] text-[color:var(--color-paper)]/65">
+            {t.about.team_rights_title[lang]}
+          </li>
+          <li class="pt-2">
+            <a href="mailto:rights@noshirbooks.uz" class="hover:text-[color:var(--color-paper)] transition-colors">
+              rights@noshirbooks.uz
+            </a>
+          </li>
+          <li>
+            <a href="mailto:sanjarshamsiddinow@gmail.com" class="hover:text-[color:var(--color-paper)] transition-colors">
+              sanjarshamsiddinow@gmail.com
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- General Contact -->
+      <div class="md:col-span-3">
         <h3 class="text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-[color:var(--color-gold)] mb-5">
           {t.footer.contact_heading[lang]}
         </h3>
         <ul class="space-y-3 text-[color:var(--color-paper)]/75">
-          <li><a href="mailto:rights@noshirbooks.uz" class="hover:text-[color:var(--color-paper)] transition-colors">rights@noshirbooks.uz</a></li>
           <li><a href="tel:+998909684747" class="hover:text-[color:var(--color-paper)] transition-colors">+998 90 968 47 47</a></li>
-          <li class="pt-2 text-[0.88rem] leading-relaxed">
+          <li class="text-[0.88rem] leading-relaxed">
             {t.contact.address_value[lang]}
-          </li>
-          <li class="pt-2">
-            <a
-              href={lang === "uz" ? "/en" : "/"}
-              class="inline-block text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[color:var(--color-gold)] hover:text-[color:var(--color-gold-soft)]"
-            >
-              {lang === "uz" ? "English →" : "O'zbekcha →"}
-            </a>
           </li>
         </ul>
       </div>
     </div>
 
-    <div class="pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-[0.82rem] text-[color:var(--color-paper)]/60">
+    <!-- Legal block -->
+    <div class="py-8 border-b border-[color:var(--color-paper)]/10 grid gap-2 md:grid-cols-2 text-[0.82rem] text-[color:var(--color-paper)]/60">
+      <ul class="space-y-1">
+        <li>{t.footer.legal_company[lang]}</li>
+        <li>{t.footer.legal_director[lang]}</li>
+        <li>{t.footer.legal_reg_number[lang]}</li>
+      </ul>
+      <ul class="space-y-1 md:text-right">
+        <li>{t.footer.legal_stir[lang]}</li>
+        <li>{t.footer.legal_isbn[lang]}</li>
+        <li>
+          <a
+            href="/noshir-registration.pdf"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-1.5 text-[color:var(--color-gold)] hover:text-[color:var(--color-gold-soft)] underline underline-offset-4 decoration-[color:var(--color-gold)]/50 hover:decoration-[color:var(--color-gold-soft)]"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="12" y1="18" x2="12" y2="12"></line>
+              <polyline points="9 15 12 18 15 15"></polyline>
+            </svg>
+            <span>{t.footer.legal_cert_link[lang]}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pt-6 text-[0.82rem] text-[color:var(--color-paper)]/60">
       <p>{t.footer.copyright[lang]}</p>
-      <p>{t.footer.legal[lang]}</p>
     </div>
   </div>
 </footer>

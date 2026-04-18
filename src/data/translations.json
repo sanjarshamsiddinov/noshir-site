@@ -2,160 +2,239 @@
   "meta": {
     "title": {
       "en": "Noshir — Independent Publishing House in Tashkent, Uzbekistan",
-      "uz": "Noshir — Toshkentdagi mustaqil nashriyot uyi"
+      "uz": "Noshir — Toshkentdagi mustaqil nashriyot uyi",
+      "ru": "Noshir — независимое издательство в Ташкенте, Узбекистан"
     },
     "description": {
-      "en": "An independent Tashkent publisher launching an international translation programme to bring world literature into Uzbek. Registered 1995. Inaugural title: Pachinko by Min Jin Lee.",
-      "uz": "Jahon adabiyotini o'zbek tiliga olib kelish uchun xalqaro tarjima dasturini ishga tushirayotgan mustaqil Toshkent nashriyoti. 1995 yilda tashkil etilgan. Birinchi nashr: Min Jin Leening \"Pachinko\" asari."
+      "en": "An independent Tashkent publisher launching an international translation programme to bring world literature into Uzbek. Registered 1995.",
+      "uz": "Jahon adabiyotini o'zbek tiliga olib kelish uchun xalqaro tarjima dasturini ishga tushirayotgan mustaqil Toshkent nashriyoti. 1995 yilda tashkil etilgan.",
+      "ru": "Независимое ташкентское издательство запускает международную программу переводов, чтобы представить мировую литературу на узбекском языке. Основано в 1995 году."
     }
   },
   "nav": {
-    "about": { "en": "About", "uz": "Biz haqimizda" },
-    "catalog": { "en": "Books", "uz": "Kitoblar" },
-    "rights": { "en": "Rights", "uz": "Huquqlar" },
-    "contact": { "en": "Contact", "uz": "Aloqa" },
-    "cta": { "en": "Rights Inquiry", "uz": "Huquqlar so'rovi" },
-    "established": { "en": "Est. 1995", "uz": "1995 yildan" }
+    "about": { "en": "About", "uz": "Biz haqimizda", "ru": "О нас" },
+    "catalog": { "en": "Books", "uz": "Kitoblar", "ru": "Книги" },
+    "rights": { "en": "Rights", "uz": "Huquqlar", "ru": "Права" },
+    "contact": { "en": "Contact", "uz": "Aloqa", "ru": "Контакты" },
+    "cta": { "en": "Rights Inquiry", "uz": "Huquqlar so'rovi", "ru": "Запрос по правам" },
+    "established": { "en": "Est. 1995", "uz": "1995 yildan", "ru": "Осн. 1995" }
   },
   "hero": {
     "eyebrow": {
       "en": "Independent Publishing House · Tashkent, Uzbekistan",
-      "uz": "Mustaqil nashriyot uyi · Toshkent, O'zbekiston"
+      "uz": "Mustaqil nashriyot uyi · Toshkent, O'zbekiston",
+      "ru": "Независимое издательство · Ташкент, Узбекистан"
     },
     "headline": {
-      "en": "World Literature & Guides",
-      "uz": "Jahon adabiyoti va qo'llanmalar"
+      "en": "An independent Uzbek publishing house",
+      "uz": "Mustaqil o'zbek nashriyot uyi",
+      "ru": "Независимое узбекское издательство"
     },
     "subheadline": {
-      "en": "We publish the finest fiction alongside modern IT and popular-science books to the highest standards. If you hold the rights to a work and have a ready project, we can turn it into a real book and bring it to readers.",
-      "uz": "Biz eng sara badiiy asarlar, shuningdek, zamonaviy IT va ilmiy-ommabop kitoblarni sifatli nashr etamiz. Agar sizda asarni chop etish huquqi va tayyor loyiha bo'lsa, biz uni haqiqiy kitobga aylantirish va o'quvchilarga taqdim etishda yordam beramiz."
+      "en": "Fiction, non-fiction, reference, and children's books — quality publishing in Uzbekistan since 1995.",
+      "uz": "Badiiy adabiyot, ilmiy-ommabop kitoblar, ma'lumotnomalar va bolalar kitoblari — 1995 yildan beri O'zbekistonda sifatli nashriyot.",
+      "ru": "Художественная и научно-популярная литература, справочные и детские издания — качественное книгоиздание в Узбекистане с 1995 года."
     },
-    "cta_primary": { "en": "View the Books", "uz": "Kitoblarni ko'rish" },
-    "cta_secondary": { "en": "Translation Rights", "uz": "Tarjima huquqlari" }
+    "cta_primary": { "en": "View the Books", "uz": "Kitoblarni ko'rish", "ru": "Посмотреть книги" },
+    "cta_secondary": { "en": "Translation Rights", "uz": "Tarjima huquqlari", "ru": "Права на перевод" }
   },
   "trust_bar": {
-    "est": { "en": "Established 1995", "uz": "1995 yilda tashkil etilgan" },
-    "location": { "en": "Tashkent, Uzbekistan", "uz": "Toshkent, O'zbekiston" }
+    "est": { "en": "Established 1995", "uz": "1995 yilda tashkil etilgan", "ru": "Основано в 1995 году" },
+    "location": { "en": "Tashkent, Uzbekistan", "uz": "Toshkent, O'zbekiston", "ru": "Ташкент, Узбекистан" }
   },
   "about": {
-    "eyebrow": { "en": "About Noshir", "uz": "Biz haqimizda" },
+    "eyebrow": { "en": "About Noshir", "uz": "Biz haqimizda", "ru": "О Noshir" },
     "heading": {
-      "en": "A Tashkent publishing house, turning to the world",
-      "uz": "Toshkentdagi nashriyot uyi — endi jahon sari"
+      "en": "An independent publishing house in Tashkent",
+      "uz": "Toshkentdagi mustaqil nashriyot uyi",
+      "ru": "Независимое издательство в Ташкенте"
     },
     "paragraph_1": {
-      "en": "Noshir LLC is an independent publishing house based in Tashkent. Since 1995, we have been dedicated to providing our readers with high-quality, beautifully printed books. Starting in 2026, we are embarking on an exciting new mission: helping bring the world's best contemporary fiction, non-fiction, and IT literature to Uzbek readers.",
-      "uz": "Noshir MChJ — Toshkentda joylashgan mustaqil nashriyot uyi. 1995 yildan buyon biz o'quvchilarimizga yuqori sifatli, chiroyli bosma kitoblar taqdim etishga bag'ishlanganmiz. 2026 yildan boshlab biz yangi va qiziqarli vazifaga kirishmoqdamiz: jahonning eng yaxshi zamonaviy badiiy, ilmiy-ommabop va IT adabiyotini o'zbek o'quvchilariga yetkazish."
+      "en": "Noshir is an independent publishing house in Tashkent. Since 1995 we have published more than two hundred titles — fiction, children's books, and work across the humanities, sciences, and reference.",
+      "uz": "Noshir — Toshkentdagi mustaqil nashriyot uyi. 1995 yildan buyon biz ikki yuzdan ortiq kitob chop etganmiz: badiiy adabiyot, bolalar kitoblari, gumanitar va tabiiy fanlar hamda ma'lumotnoma nashrlari.",
+      "ru": "Noshir — независимое издательство в Ташкенте. С 1995 года мы выпустили более двухсот изданий: художественная литература, детские книги, работы в области гуманитарных и естественных наук, справочные издания."
     },
     "paragraph_2": {
-      "en": "",
-      "uz": ""
+      "en": "Our books reach readers through Uzbekistan's national retail networks, including Asaxiy Books, and are a familiar presence in schools and libraries across the country. We work with established Uzbek authors and editors who know the market.",
+      "uz": "Kitoblarimiz Asaxiy Books kabi O'zbekistonning milliy savdo tarmoqlari orqali kitobxonlarga yetib boradi va butun mamlakat bo'ylab maktablar hamda kutubxonalarda tanish nashrlarga aylangan. Biz bu bozorni yaxshi biladigan tanilgan o'zbek mualliflari va muharrirlari bilan hamkorlik qilamiz.",
+      "ru": "Наши книги доходят до читателей через национальные розничные сети Узбекистана, в том числе Asaxiy Books, и хорошо знакомы в школах и библиотеках по всей стране. Мы работаем с известными узбекскими авторами и редакторами, хорошо знающими этот рынок."
     },
-    "stat_1_label": { "en": "Established", "uz": "Tashkil etilgan" },
-    "stat_1_value": { "en": "1995", "uz": "1995" },
-    "stat_2_label": { "en": "Based In", "uz": "Manzil" },
-    "stat_2_value": { "en": "Tashkent", "uz": "Toshkent" },
-    "stat_3_label": { "en": "Programme Launched", "uz": "Dastur ishga tushdi" },
-    "stat_3_value": { "en": "2026", "uz": "2026" }
+    "paragraph_3": {
+      "en": "In 2026 we are opening a new chapter: publishing Uzbek translations of works we admire from around the world. Rights enquiries are welcome at rights@noshirbooks.uz.",
+      "uz": "2026 yildan boshlab biz yangi bosqichga qadam qo'yamiz — jahonning o'zimiz qadrlagan asarlarini o'zbek tiliga tarjima qilib nashr etamiz. Huquqlar bo'yicha so'rovlarni rights@noshirbooks.uz manziliga yuborishingiz mumkin.",
+      "ru": "В 2026 году мы открываем новую главу — издаём на узбекском языке переводы произведений, которые ценим сами. Запросы по правам принимаем по адресу rights@noshirbooks.uz."
+    },
+    "stat_1_label": { "en": "Established", "uz": "Tashkil etilgan", "ru": "Основано" },
+    "stat_1_value": { "en": "1995", "uz": "1995", "ru": "1995" },
+    "stat_2_label": { "en": "Based In", "uz": "Manzil", "ru": "Местонахождение" },
+    "stat_2_value": { "en": "Tashkent", "uz": "Toshkent", "ru": "Ташкент" },
+    "stat_3_label": { "en": "Programme Launched", "uz": "Dastur ishga tushdi", "ru": "Запуск программы" },
+    "stat_3_value": { "en": "2026", "uz": "2026", "ru": "2026" },
+    "team_heading": { "en": "Leadership", "uz": "Rahbariyat", "ru": "Руководство" },
+    "team_director_name": { "en": "Jamolov G'olibjon", "uz": "Jamolov G'olibjon", "ru": "Джамолов Голибджон" },
+    "team_director_title": { "en": "Director", "uz": "Direktor", "ru": "Директор" },
+    "team_rights_name": { "en": "Sanjar Shamsiddinov", "uz": "Sanjar Shamsiddinov", "ru": "Санжар Шамсиддинов" },
+    "team_rights_title": { "en": "Head of International Rights", "uz": "Xalqaro huquqlar bo'limi boshlig'i", "ru": "Руководитель международных прав" }
   },
   "stats": {
-    "s1_value": { "en": "1995", "uz": "1995" },
-    "s1_label": { "en": "In the Uzbek publishing market since", "uz": "O'zbek kitob bozorida shu yildan beri" },
-    "s2_value": { "en": "36M", "uz": "36M" },
-    "s2_label": { "en": "Uzbek-language readers", "uz": "O'zbek kitobxonlari" },
-    "s3_value": { "en": "2027", "uz": "2027" },
-    "s3_label": { "en": "First translated edition targeted", "uz": "Birinchi tarjima nashri rejalashtirilgan" },
-    "s4_value": { "en": "1–2", "uz": "1–2" },
-    "s4_label": { "en": "Titles per year, deliberately chosen", "uz": "Yiliga atayin tanlangan asarlar" }
+    "s1_value": { "en": "1995", "uz": "1995", "ru": "1995" },
+    "s1_label": { "en": "In the Uzbek publishing market since", "uz": "O'zbek kitob bozorida shu yildan beri", "ru": "На книжном рынке Узбекистана с" },
+    "s2_value": { "en": "36M", "uz": "36M", "ru": "36 млн" },
+    "s2_label": { "en": "Uzbek-language readers", "uz": "O'zbek kitobxonlari", "ru": "Узбекоязычных читателей" },
+    "s3_value": { "en": "2027", "uz": "2027", "ru": "2027" },
+    "s3_label": { "en": "First translated edition targeted", "uz": "Birinchi tarjima nashri rejalashtirilgan", "ru": "Планируется первое переводное издание" },
+    "s4_value": { "en": "1–2", "uz": "1–2", "ru": "1–2" },
+    "s4_label": { "en": "Titles per year, deliberately chosen", "uz": "Yiliga atayin tanlangan asarlar", "ru": "Издания в год, отобранные целенаправленно" }
   },
   "catalog": {
-    "eyebrow": { "en": "Catalogue", "uz": "Katalog" },
+    "eyebrow": { "en": "Catalogue", "uz": "Katalog", "ru": "Каталог" },
     "heading": {
-      "en": "Our Published Books",
-      "uz": "Nashr etilgan kitoblarimiz"
+      "en": "Our books",
+      "uz": "Kitoblarimiz",
+      "ru": "Наши книги"
     },
     "subheading": {
-      "en": "Explore our collection of published books across literature, science, IT, and the humanities.",
-      "uz": "Adabiyot, fan, IT va gumanitar sohalar bo'yicha nashr etilgan kitoblarimiz bilan tanishing."
+      "en": "Fiction, reference, children's literature, and work across the humanities and sciences — published in Uzbek since 1995.",
+      "uz": "Badiiy adabiyot, ma'lumotnoma, bolalar adabiyoti hamda gumanitar va tabiiy fanlar — 1995 yildan beri o'zbek tilida nashr etib kelmoqdamiz.",
+      "ru": "Художественная литература, справочные издания, детские книги и работы в области гуманитарных и естественных наук — выходят на узбекском языке с 1995 года."
+    },
+    "backlist_note": {
+      "en": "Below is our Uzbek-language backlist (1995–2024). We are starting to publish translations from 2026 — publishers and agents are welcome to write to rights@noshirbooks.uz.",
+      "uz": "Quyida 1995–2024 yillardagi o'zbek tilidagi backlistimiz. 2026 yildan boshlab tarjimalarni ham nashr etishni boshlaymiz — noshirlar va agentliklar rights@noshirbooks.uz manziliga yoza oladi.",
+      "ru": "Ниже — наш узбекоязычный бэклист 1995–2024 годов. С 2026 года мы начинаем издавать переводы — издатели и агенты могут писать на rights@noshirbooks.uz."
+    },
+    "labels": {
+      "genre":      { "en": "Genre",      "uz": "Janr",     "ru": "Жанр" },
+      "translator": { "en": "Translator", "uz": "Tarjimon", "ru": "Переводчик" },
+      "isbn":       { "en": "ISBN",       "uz": "ISBN",     "ru": "ISBN" },
+      "language":   { "en": "Language",   "uz": "Til",      "ru": "Язык" },
+      "pages":      { "en": "pp.",        "uz": "b.",       "ru": "с." }
     }
   },
   "rights": {
-    "eyebrow": { "en": "Translation Rights", "uz": "Tarjima huquqlari" },
+    "eyebrow": { "en": "Translation Rights", "uz": "Tarjima huquqlari", "ru": "Права на перевод" },
     "heading": {
       "en": "Seeking Uzbek-language rights for outstanding works",
-      "uz": "Eng zo'r asarlar uchun o'zbek tilidagi huquqlarni izlaymiz"
+      "uz": "Eng zo'r asarlar uchun o'zbek tilidagi huquqlarni izlaymiz",
+      "ru": "Приобретаем права на узбекский язык для выдающихся произведений"
     },
     "intro": {
       "en": "Noshir is actively acquiring Uzbek-language translation rights for contemporary fiction, literary classics, and essential non-fiction in business, technology, and ideas. We offer:",
-      "uz": "Noshir zamonaviy badiiy adabiyot, klassik asarlar, biznes, texnologiya va g'oyalar sohasidagi muhim ilmiy-ommabop asarlar uchun o'zbek tilidagi tarjima huquqlarini faol ravishda olmoqda. Biz quyidagilarni taklif etamiz:"
+      "uz": "Noshir zamonaviy badiiy adabiyot, klassik asarlar, biznes, texnologiya va g'oyalar sohasidagi muhim ilmiy-ommabop asarlar uchun o'zbek tilidagi tarjima huquqlarini faol ravishda olmoqda. Biz quyidagilarni taklif etamiz:",
+      "ru": "Noshir активно приобретает права на узбекский перевод современной художественной литературы, литературной классики и ключевых документальных книг в области бизнеса, технологий и идей. Мы предлагаем:"
     },
     "offer_1": {
       "en": "Direct contracts with international publishers and literary agencies",
-      "uz": "Xalqaro noshirlar va adabiy agentliklar bilan to'g'ridan-to'g'ri shartnomalar"
+      "uz": "Xalqaro noshirlar va adabiy agentliklar bilan to'g'ridan-to'g'ri shartnomalar",
+      "ru": "Прямые договоры с международными издательствами и литературными агентствами"
     },
     "offer_2": {
       "en": "Professional literary translation into Uzbek",
-      "uz": "O'zbek tiliga professional adabiy tarjima"
+      "uz": "O'zbek tiliga professional adabiy tarjima",
+      "ru": "Профессиональный литературный перевод на узбекский язык"
     },
     "offer_3": {
       "en": "Hardcover and paperback editions for the Central Asian market",
-      "uz": "Markaziy Osiyo bozori uchun qattiq va yumshoq muqovali nashrlar"
+      "uz": "Markaziy Osiyo bozori uchun qattiq va yumshoq muqovali nashrlar",
+      "ru": "Издания в твёрдом и мягком переплёте для рынка Центральной Азии"
     },
     "offer_4": {
       "en": "Distribution through Uzbekistan's leading retail networks, including Asaxiy Books",
-      "uz": "Asaxiy Books kabi O'zbekistonning yetakchi savdo tarmoqlari orqali tarqatish"
+      "uz": "Asaxiy Books kabi O'zbekistonning yetakchi savdo tarmoqlari orqali tarqatish",
+      "ru": "Дистрибуция через ведущие розничные сети Узбекистана, в том числе Asaxiy Books"
     },
     "offer_5": {
       "en": "Flat-fee or royalty-based licensing, depending on the work",
-      "uz": "Asarga qarab qat'iy to'lov yoki royalti asosidagi litsenziya"
+      "uz": "Asarga qarab qat'iy to'lov yoki royalti asosidagi litsenziya",
+      "ru": "Лицензирование по фиксированной ставке или роялти — в зависимости от произведения"
     },
     "cta_heading": {
       "en": "Ready to discuss rights?",
-      "uz": "Huquqlar haqida suhbatlashishga tayyormisiz?"
+      "uz": "Huquqlar haqida suhbatlashishga tayyormisiz?",
+      "ru": "Готовы обсудить права?"
     },
     "cta_text": {
       "en": "Write to our rights representative. We respond to every serious inquiry within two business days.",
-      "uz": "Huquqlar vakilimizga yozing. Biz har bir jiddiy so'rovga ikki ish kuni ichida javob beramiz."
+      "uz": "Huquqlar vakilimizga yozing. Biz har bir jiddiy so'rovga ikki ish kuni ichida javob beramiz.",
+      "ru": "Напишите нашему представителю по правам. Мы отвечаем на каждый серьёзный запрос в течение двух рабочих дней."
     },
-    "cta_button": { "en": "Send Rights Inquiry", "uz": "Huquqlar so'rovini yuborish" }
+    "cta_button": { "en": "Send Rights Inquiry", "uz": "Huquqlar so'rovini yuborish", "ru": "Отправить запрос по правам" }
   },
   "contact": {
-    "eyebrow": { "en": "Contact", "uz": "Aloqa" },
+    "eyebrow": { "en": "Contact", "uz": "Aloqa", "ru": "Контакты" },
     "heading": {
       "en": "Get in touch",
-      "uz": "Biz bilan bog'laning"
+      "uz": "Biz bilan bog'laning",
+      "ru": "Свяжитесь с нами"
     },
     "subheading": {
       "en": "For rights inquiries, partnerships, or general correspondence.",
-      "uz": "Huquq so'rovlari, hamkorlik yoki umumiy yozishmalar uchun."
+      "uz": "Huquq so'rovlari, hamkorlik yoki umumiy yozishmalar uchun.",
+      "ru": "Для запросов по правам, партнёрств и общих обращений."
     },
-    "email_label": { "en": "Email", "uz": "Elektron pochta" },
-    "phone_label": { "en": "Phone", "uz": "Telefon" },
-    "address_label": { "en": "Address", "uz": "Manzil" },
+    "rights_contact_heading": { "en": "Rights contact", "uz": "Huquqlar bo'yicha aloqa", "ru": "Контакт по правам" },
+    "email_label": { "en": "Email", "uz": "Elektron pochta", "ru": "Электронная почта" },
+    "phone_label": { "en": "Phone", "uz": "Telefon", "ru": "Телефон" },
+    "address_label": { "en": "Address", "uz": "Manzil", "ru": "Адрес" },
     "address_value": {
-      "en": "30 Navoiy Street, Shaykhontohur District, Tashkent 100000, Uzbekistan",
-      "uz": "Navoiy ko'chasi, 30-uy, Shayxontohur tumani, Toshkent 100000, O'zbekiston"
+      "en": "30 Navoiy Street, Shaykhontohur District, Tashkent 100011, Uzbekistan",
+      "uz": "Navoiy ko'chasi, 30-uy, Shayxontohur tumani, Toshkent 100011, O'zbekiston",
+      "ru": "ул. Навои, 30, Шайхонтохурский район, Ташкент 100011, Узбекистан"
     },
-    "hours_label": { "en": "Business Hours", "uz": "Ish vaqti" },
+    "hours_label": { "en": "Business Hours", "uz": "Ish vaqti", "ru": "Часы работы" },
     "hours_value": {
       "en": "Monday — Friday, 9:00 — 18:00 (UZT, GMT+5)",
-      "uz": "Dushanba — Juma, 9:00 — 18:00 (Toshkent vaqti, GMT+5)"
+      "uz": "Dushanba — Juma, 9:00 — 18:00 (Toshkent vaqti, GMT+5)",
+      "ru": "Понедельник — Пятница, 9:00 — 18:00 (по Ташкенту, GMT+5)"
     }
   },
   "footer": {
     "tagline": {
       "en": "An independent publishing house in Tashkent, established 1995.",
-      "uz": "Toshkentdagi mustaqil nashriyot uyi, 1995 yilda tashkil etilgan."
+      "uz": "Toshkentdagi mustaqil nashriyot uyi, 1995 yilda tashkil etilgan.",
+      "ru": "Независимое издательство в Ташкенте, основано в 1995 году."
     },
-    "nav_heading": { "en": "Explore", "uz": "Ko'rib chiqing" },
-    "contact_heading": { "en": "Get in Touch", "uz": "Bog'lanish" },
+    "nav_heading": { "en": "Explore", "uz": "Ko'rib chiqing", "ru": "Навигация" },
+    "contact_heading": { "en": "Get in Touch", "uz": "Bog'lanish", "ru": "Связаться" },
+    "legal_company": {
+      "en": "\"NOSHIR\" LLC · Registered in Tashkent, Republic of Uzbekistan",
+      "uz": "\"NOSHIR\" MChJ · Toshkent, O'zbekiston Respublikasida ro'yxatdan o'tgan",
+      "ru": "ООО «NOSHIR» · Зарегистрировано в Ташкенте, Республика Узбекистан"
+    },
+    "legal_director": {
+      "en": "Director: Jamolov G'olibjon",
+      "uz": "Direktor: Jamolov G'olibjon",
+      "ru": "Директор: Джамолов Голибджон"
+    },
+    "legal_reg_number": {
+      "en": "Registration certificate №1032 · 30.03.1995",
+      "uz": "Ro'yxatdan o'tkazish guvohnomasi №1032 · 30.03.1995",
+      "ru": "Свидетельство о регистрации №1032 · 30.03.1995"
+    },
+    "legal_stir": {
+      "en": "STIR: 200894917",
+      "uz": "STIR: 200894917",
+      "ru": "ИНН: 200894917"
+    },
+    "legal_isbn": {
+      "en": "ISBN prefix: 978-9943-353",
+      "uz": "ISBN prefiks: 978-9943-353",
+      "ru": "ISBN префикс: 978-9943-353"
+    },
+    "legal_cert_link": {
+      "en": "View registration certificate (PDF)",
+      "uz": "Guvohnomani ko'rish (PDF)",
+      "ru": "Посмотреть свидетельство (PDF)"
+    },
     "legal": {
-      "en": "\"Noshir\" LLC · Registered in Tashkent, Republic of Uzbekistan",
-      "uz": "\"Noshir\" MChJ · Toshkent, O'zbekiston Respublikasida ro'yxatdan o'tgan"
+      "en": "\"NOSHIR\" LLC · Registered in Tashkent, Republic of Uzbekistan",
+      "uz": "\"NOSHIR\" MChJ · Toshkent, O'zbekiston Respublikasida ro'yxatdan o'tgan",
+      "ru": "ООО «NOSHIR» · Зарегистрировано в Ташкенте, Республика Узбекистан"
     },
     "copyright": {
-      "en": "© 1995 — 2026 \"Noshir\" LLC. All rights reserved.",
-      "uz": "© 1995 — 2026 \"Noshir\" MChJ. Barcha huquqlar himoyalangan."
+      "en": "© 1995 — 2026 \"NOSHIR\" LLC. All rights reserved.",
+      "uz": "© 1995 — 2026 \"NOSHIR\" MChJ. Barcha huquqlar himoyalangan.",
+      "ru": "© 1995 — 2026 ООО «NOSHIR». Все права защищены."
     }
   }
 }

@@ -2,11 +2,16 @@
 import translations from "../data/translations.json";
 
 export interface Props {
-  lang: "en" | "uz";
+  lang: "en" | "uz" | "ru";
 }
 const { lang } = Astro.props;
 const t = translations;
-const altLangHref = lang === "uz" ? "/en" : "/";
+
+const langLinks: { code: "uz" | "ru" | "en"; href: string; label: string }[] = [
+  { code: "uz", href: "/",    label: "UZ" },
+  { code: "ru", href: "/ru",  label: "RU" },
+  { code: "en", href: "/en",  label: "EN" },
+];
 ---
 
 <header
@@ -30,14 +35,26 @@ const altLangHref = lang === "uz" ? "/en" : "/";
 
       <!-- Right side -->
       <div class="hidden md:flex items-center gap-4">
-        <a
-          href={altLangHref}
-          class="text-xs font-semibold tracking-[0.12em] uppercase text-[color:var(--color-ink-muted)] hover:text-[color:var(--color-navy)] transition-colors border border-[color:var(--color-ink-muted)]/30 hover:border-[color:var(--color-navy)] rounded-full px-3 py-1.5"
-          aria-label={lang === "uz" ? "Switch to English" : "O'zbekchaga o'tish"}
-        >
-          {lang === "uz" ? "EN" : "UZ"}
-        </a>
-        <a href="#contact" class="btn btn-primary !py-2.5 !px-5 !text-sm">
+        <!-- Language switcher -->
+        <div class="flex items-center gap-1 text-xs font-semibold tracking-[0.12em] uppercase">
+          {langLinks.map((l, i) => (
+            <>
+              {l.code === lang ? (
+                <span class="text-[color:var(--color-gold)] px-1.5">{l.label}</span>
+              ) : (
+                <a
+                  href={l.href}
+                  class="text-[color:var(--color-paper)]/70 hover:text-[color:var(--color-paper)] transition-colors px-1.5"
+                  aria-label={`Switch to ${l.label}`}
+                >{l.label}</a>
+              )}
+              {i < langLinks.length - 1 && (
+                <span class="text-[color:var(--color-paper)]/30" aria-hidden="true">·</span>
+              )}
+            </>
+          ))}
+        </div>
+        <a href="#contact" class="btn btn-primary !py-2.5 !px-5 !text-sm !bg-[color:var(--color-gold)] !border-[color:var(--color-gold)] !text-[color:var(--color-navy-deep)] hover:!bg-[color:var(--color-gold-soft)]">
           {t.nav.cta[lang]}
         </a>
       </div>
@@ -47,7 +64,7 @@ const altLangHref = lang === "uz" ? "/en" : "/";
         data-menu-btn
         aria-label="Toggle menu"
         aria-expanded="false"
-        class="md:hidden w-10 h-10 flex items-center justify-center text-[color:var(--color-navy)]"
+        class="md:hidden w-10 h-10 flex items-center justify-center text-[color:var(--color-paper)]"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="4" y1="8" x2="20" y2="8" />
@@ -83,13 +100,26 @@ const altLangHref = lang === "uz" ? "/en" : "/";
     <a href="#about" class="text-3xl font-serif text-[color:var(--color-paper)]">{t.nav.about[lang]}</a>
     <a href="#catalog" class="text-3xl font-serif text-[color:var(--color-paper)]">{t.nav.catalog[lang]}</a>
     <a href="#contact" class="text-3xl font-serif text-[color:var(--color-paper)]">{t.nav.contact[lang]}</a>
+
     <div class="pt-6 mt-2 border-t border-[color:var(--color-paper)]/20 flex items-center justify-between">
-      <a
-        href={altLangHref}
-        class="text-sm font-semibold tracking-[0.12em] uppercase text-[color:var(--color-paper)]/70"
-      >
-        {lang === "uz" ? "ENGLISH →" : "O'ZBEKCHA →"}
-      </a>
+      <!-- Language switcher (mobile) -->
+      <div class="flex items-center gap-2 text-sm font-semibold tracking-[0.12em] uppercase">
+        {langLinks.map((l, i) => (
+          <>
+            {l.code === lang ? (
+              <span class="text-[color:var(--color-gold)]">{l.label}</span>
+            ) : (
+              <a
+                href={l.href}
+                class="text-[color:var(--color-paper)]/70 hover:text-[color:var(--color-paper)]"
+              >{l.label}</a>
+            )}
+            {i < langLinks.length - 1 && (
+              <span class="text-[color:var(--color-paper)]/30" aria-hidden="true">·</span>
+            )}
+          </>
+        ))}
+      </div>
       <a href="#contact" class="btn !bg-[color:var(--color-gold)] !border-[color:var(--color-gold)] !text-[#232328] !py-2.5 !px-5 !text-sm">
         {t.nav.cta[lang]}
       </a>
@@ -114,18 +144,6 @@ const altLangHref = lang === "uz" ? "/en" : "/";
     color: var(--color-paper);
   }
 
-  [data-nav].is-scrolled :global(a[aria-label*="Switch"]),
-  [data-nav].is-scrolled :global(a[aria-label*="o'tish"]) {
-    color: rgba(248, 245, 239, 0.85) !important;
-    border-color: rgba(248, 245, 239, 0.3) !important;
-  }
-
-  [data-nav].is-scrolled :global(a[aria-label*="Switch"]:hover),
-  [data-nav].is-scrolled :global(a[aria-label*="o'tish"]:hover) {
-    color: var(--color-paper) !important;
-    border-color: var(--color-gold) !important;
-  }
-
   [data-nav].is-scrolled :global([data-menu-btn]) {
     color: var(--color-paper);
   }
@@ -136,22 +154,6 @@ const altLangHref = lang === "uz" ? "/en" : "/";
 
   [data-nav]:not(.is-scrolled) :global(.nav-link:hover) {
     color: var(--color-paper);
-  }
-
-  [data-nav]:not(.is-scrolled) :global(span[class*="text-[color:var(--color-ink-muted)]"]) {
-    color: rgba(248, 245, 239, 0.55) !important;
-  }
-
-  [data-nav]:not(.is-scrolled) :global(a[aria-label*="Switch"]),
-  [data-nav]:not(.is-scrolled) :global(a[aria-label*="o'tish"]) {
-    color: rgba(248, 245, 239, 0.85) !important;
-    border-color: rgba(248, 245, 239, 0.3) !important;
-  }
-
-  [data-nav]:not(.is-scrolled) :global(a[aria-label*="Switch"]:hover),
-  [data-nav]:not(.is-scrolled) :global(a[aria-label*="o'tish"]:hover) {
-    color: var(--color-paper) !important;
-    border-color: var(--color-gold) !important;
   }
 
   [data-nav]:not(.is-scrolled) :global([data-menu-btn]) {

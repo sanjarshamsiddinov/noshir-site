@@ -3,44 +3,68 @@ import "../styles/global.css";
 import translations from "../data/translations.json";
 
 export interface Props {
-  lang: "en" | "uz";
+  lang: "en" | "uz" | "ru";
 }
 
 const { lang } = Astro.props;
 const title = translations.meta.title[lang];
 const description = translations.meta.description[lang];
 const siteUrl = "https://noshirbooks.uz";
-const pathUz = "/";
-const pathEn = "/en";
-const canonical = lang === "uz" ? `${siteUrl}${pathUz}` : `${siteUrl}${pathEn}`;
+const pathByLang = {
+  uz: "/",
+  en: "/en",
+  ru: "/ru",
+} as const;
+const canonical = `${siteUrl}${pathByLang[lang]}`;
+const ogLocale = lang === "en" ? "en_US" : lang === "ru" ? "ru_RU" : "uz_UZ";
 
 const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Noshir LLC",
-  alternateName: ["\"Noshir\" MChJ", "Noshir"],
+  name: "NOSHIR LLC",
+  alternateName: ["\"NOSHIR\" MChJ", "Noshir", "Noshir Books"],
   url: siteUrl,
   logo: `${siteUrl}/logo-icon.png`,
-  foundingDate: "1995-01-01",
+  foundingDate: "1995-03-30",
   description,
   address: {
     "@type": "PostalAddress",
     streetAddress: "30 Navoiy Street, Shaykhontohur District",
     addressLocality: "Tashkent",
-    postalCode: "100000",
+    postalCode: "100011",
     addressCountry: "UZ",
   },
+  founder: {
+    "@type": "Person",
+    name: "Jamolov G'olibjon",
+    jobTitle: "Director",
+  },
+  employee: [
+    {
+      "@type": "Person",
+      name: "Jamolov G'olibjon",
+      jobTitle: "Director",
+    },
+    {
+      "@type": "Person",
+      name: "Sanjar Shamsiddinov",
+      jobTitle: "Head of International Rights",
+      email: "rights@noshirbooks.uz",
+    },
+  ],
   contactPoint: [
     {
       "@type": "ContactPoint",
       contactType: "Translation Rights",
       email: "rights@noshirbooks.uz",
+      telephone: "+998-90-968-47-47",
       availableLanguage: ["en", "ru", "uz"],
     },
     {
       "@type": "ContactPoint",
       contactType: "General Inquiries",
       email: "rights@noshirbooks.uz",
+      telephone: "+998-90-968-47-47",
       availableLanguage: ["en", "ru", "uz"],
     },
   ],
@@ -58,11 +82,12 @@ const orgJsonLd = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="en" href={`${siteUrl}${pathEn}`} />
-    <link rel="alternate" hreflang="uz" href={`${siteUrl}${pathUz}`} />
-    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${pathUz}`} />
+    <link rel="alternate" hreflang="uz" href={`${siteUrl}${pathByLang.uz}`} />
+    <link rel="alternate" hreflang="ru" href={`${siteUrl}${pathByLang.ru}`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}${pathByLang.en}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${pathByLang.uz}`} />
 
-    <meta name="theme-color" content="#1F3864" />
+    <meta name="theme-color" content="#232328" />
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
@@ -74,7 +99,7 @@ const orgJsonLd = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
-    <meta property="og:locale" content={lang === "en" ? "en_US" : "uz_UZ"} />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:site_name" content="Noshir" />
 
     <!-- Twitter -->

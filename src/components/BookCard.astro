@@ -1,4 +1,6 @@
 ---
+import translations from "../data/translations.json";
+
 export interface Props {
   book: {
     slug: string;
@@ -11,14 +13,41 @@ export interface Props {
     genre?: string | null;
     translator?: string | null;
     language?: string | null;
+    url?: string | null;
   };
+  lang: "en" | "uz" | "ru";
 }
 
-const { book } = Astro.props;
+const { book, lang } = Astro.props;
+const labels = translations.catalog.labels;
 const cover = `/images/noshir-books/${book.slug}.jpg`;
+
+// Serialize just the fields the modal needs. We pass via data attribute as a
+// JSON string so the shared modal JS can populate itself without prop-drilling.
+const bookData = JSON.stringify({
+  slug: book.slug,
+  title: book.title,
+  author: book.author ?? null,
+  year: book.year ?? null,
+  pages: book.pages ?? null,
+  isbn: book.isbn ?? null,
+  description: book.description ?? null,
+  genre: book.genre ?? null,
+  translator: book.translator ?? null,
+  language: book.language ?? null,
+  url: book.url ?? null,
+  cover,
+});
 ---
 
-<article class="book-card" data-book-card>
+<article
+  class="book-card"
+  data-book-card
+  data-book={bookData}
+  role="button"
+  tabindex="0"
+  aria-label={`${book.title}${book.author ? " — " + book.author : ""}`}
+>
   <div class="book-cover">
     <img
       src={cover}
@@ -28,7 +57,7 @@ const cover = `/images/noshir-books/${book.slug}.jpg`;
     />
     <div class="cover-scrim" aria-hidden="true"></div>
 
-    <!-- Hover overlay -->
+    <!-- Hover overlay (teaser) -->
     <div class="cover-overlay">
       <div class="overlay-inner">
         {book.description && (
@@ -37,23 +66,23 @@ const cover = `/images/noshir-books/${book.slug}.jpg`;
         <div class="overlay-meta">
           {book.genre && (
             <p class="overlay-meta-line">
-              <span class="meta-label">Janr:</span> {book.genre}
+              <span class="meta-label">{labels.genre[lang]}:</span> {book.genre}
             </p>
           )}
           {book.translator && (
             <p class="overlay-meta-line">
-              <span class="meta-label">Tarjimon:</span> {book.translator}
+              <span class="meta-label">{labels.translator[lang]}:</span> {book.translator}
             </p>
           )}
           {book.isbn && (
             <p class="overlay-meta-line">
-              <span class="meta-label">ISBN:</span> {book.isbn}
-              {book.pages && <> · {book.pages} b.</>}
+              <span class="meta-label">{labels.isbn[lang]}:</span> {book.isbn}
+              {book.pages && <> · {book.pages} {labels.pages[lang]}</>}
             </p>
           )}
           {book.language && (
             <p class="overlay-meta-line">
-              <span class="meta-label">Til:</span> {book.language}
+              <span class="meta-label">{labels.language[lang]}:</span> {book.language}
             </p>
           )}
         </div>
@@ -72,11 +101,18 @@ const cover = `/images/noshir-books/${book.slug}.jpg`;
   .book-card {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .book-card:hover {
     transform: translateY(-4px);
+  }
+
+  .book-card:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 4px;
+    border-radius: 4px;
   }
 
   .book-cover {
